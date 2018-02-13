@@ -1,62 +1,14 @@
+//color
 $main: #00BDB4
 $sub: #F58412
-$text: #fff
+$text: #34495E
 
-//gototop
-#gotop
-  display: none
-  position: fixed
-  right: 20px
-  bottom: 20px
-  padding: 16px 20px
-  font-size: 20px
-  background: rgba(0, 0, 0, 0.3)
-  color: white
-  cursor: pointer
-  z-index: 500
-  border-radius: 50px
-  &:hover
-    background: rgba(0, 0, 0, 0.6)
-    transition: .4s
-
-.clearfix
-  *zoom: 1
-  &::after
-    clear: both
-    content: ""
-    display: block
-    height: 0
-    visibility: hidden
-
-.logo
-  width: 300px
-  height: 108px
-  background: url('../img/logo.png') no-repeat
-  margin: 0
-  overflow: hidden
-  text-indent: 100%
-  white-space: nowrap
-  a
-    display: block
-    width: 100%
-    height: 100%
-
-//bootstrap same height
-//.row
-  display: flex
-  flex-wrap: wrap
-  [class*="col-"]
-    display: flex
-    flex-direction: column
-
+//body
 body
   overflow-x: hidden
-  background: url(../img/.jpg) no-repeat top center
+  background: url(../img/bg1.jpg) no-repeat top center #4CBAD7
   font-family: "Helvetica Neue", Helvetica, "PingFang TC", "LiHei Pro", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", Arial ,sans-serif
-
-img
-  max-width: 100%
-  height: auto
+  background-size: 100%
 
 //nav
 nav
@@ -66,6 +18,26 @@ header
 
 //main
 main
-
+  h2
+    color: $text !important
+  .fc-event-container
+    a
+      border-radius: 0
+  .fc-unthemed td
+    background-color: rgba(255, 255, 255, 0.2)
+  .fc-day-header
+    background-color: rgba(255, 255, 255, 0.6)
+  .fc-day-header.fc-sun,.fc-day-header.fc-sat
+    background-color: rgba(255, 0, 0, 0.3) !important
+  .fc-sun,.fc-sat
+    background-color: rgba(255, 0, 0, 0.1) !important
+  .fc-today
+    background-color: rgba(0, 0, 255, 0.2) !important
+  .fc-other-month
+    background-color: rgba(255, 255, 255, 0.2) !important
+    td
+      opacity: 0.2 !important
+  .fc-content-skeleton td
+    background-color: rgba(255, 255, 255, 0) !important
 //footer
 footer

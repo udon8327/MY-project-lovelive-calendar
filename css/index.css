@@ -1,49 +1,35 @@
 @charset "UTF-8";
-#gotop {
-  display: none;
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  padding: 16px 20px;
-  font-size: 20px;
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
-  cursor: pointer;
-  z-index: 500;
-  border-radius: 50px; }
-  #gotop:hover {
-    background: rgba(0, 0, 0, 0.6);
-    -webkit-transition: .4s;
-    -o-transition: .4s;
-    transition: .4s; }
-
-.clearfix {
-  *zoom: 1; }
-  .clearfix::after {
-    clear: both;
-    content: "";
-    display: block;
-    height: 0;
-    visibility: hidden; }
-
-.logo {
-  width: 300px;
-  height: 108px;
-  background: url("../img/logo.png") no-repeat;
-  margin: 0;
-  overflow: hidden;
-  text-indent: 100%;
-  white-space: nowrap; }
-  .logo a {
-    display: block;
-    width: 100%;
-    height: 100%; }
-
 body {
   overflow-x: hidden;
-  background: url(../img/.jpg) no-repeat top center;
-  font-family: "Helvetica Neue", Helvetica, "PingFang TC", "LiHei Pro", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", Arial ,sans-serif; }
+  background: url(../img/bg1.jpg) no-repeat top center #4CBAD7;
+  font-family: "Helvetica Neue", Helvetica, "PingFang TC", "LiHei Pro", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", Arial ,sans-serif;
+  background-size: 100%; }
 
-img {
-  max-width: 100%;
-  height: auto; }
+main h2 {
+  color: #34495E !important; }
+
+main .fc-event-container a {
+  border-radius: 0; }
+
+main .fc-unthemed td {
+  background-color: rgba(255, 255, 255, 0.2); }
+
+main .fc-day-header {
+  background-color: rgba(255, 255, 255, 0.6); }
+
+main .fc-day-header.fc-sun, main .fc-day-header.fc-sat {
+  background-color: rgba(255, 0, 0, 0.3) !important; }
+
+main .fc-sun, main .fc-sat {
+  background-color: rgba(255, 0, 0, 0.1) !important; }
+
+main .fc-today {
+  background-color: rgba(0, 0, 255, 0.2) !important; }
+
+main .fc-other-month {
+  background-color: rgba(255, 255, 255, 0.2) !important; }
+  main .fc-other-month td {
+    opacity: 0.2 !important; }
+
+main .fc-content-skeleton td {
+  background-color: rgba(255, 255, 255, 0) !important; }

@@ -9,19 +9,34 @@ html(lang='zh-Hant-TW')
     meta(name='keywords' content='網頁關鍵字')
     meta(name='author' content='Bohan Huang')
     link(rel='shortcut icon' href='img/.ico')
-    title 網頁名稱
+    title LL行事曆
     link(rel='stylesheet' href='plugins/bootstrap-3.3.1-24/css/bootstrap.min.css')
-    //link(rel='stylesheet' href='plugins/Font-Awesome-3.2.1/font-awesome.min.css')
-    //link(rel='stylesheet' href='plugins/Flat-UI-master/dist/css/flat-ui.min.css')
+    link(rel='stylesheet' href='css/mycss.css')
     link(rel='stylesheet' href='css/index.css')
+    link(rel='stylesheet', href='plugins/fullcalendar/fullcalendar.css')
     | <!--[if lt IE 9]>
-    |   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    |   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    |   <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    |   <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     | <![endif]-->
+    //script
     script(src='js/jquery-2.1.4.min.js')
-    script(src='https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js')
+    //script(src='https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js')
     script(src='plugins/bootstrap-3.3.1-24/js/bootstrap.min.js')
+    script(src='plugins/fullcalendar/moment.min.js')
+    script(src='plugins/fullcalendar/fullcalendar.js')
+    script(src='plugins/fullcalendar/gcal.min.js')
     script(src='js/index.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+          $('#calendar').fullCalendar({
+              googleCalendarApiKey: 'AIzaSyBA8owMc6-Ozf9T9BTAEWufMSdVbOwb3hs',
+              events: {
+                  googleCalendarId: 'pnk42e02rmm3rtgd5f0aves4ac@group.calendar.google.com',
+                  className: 'gcal-event' // an option!
+              }
+          });
+      });
+
 
   body
 
@@ -40,9 +55,12 @@ html(lang='zh-Hant-TW')
     //main
     main.text-center
       .container
-        p test
-        p test
-        p test
+        br
+        br
+        br
+        #calendar
 
     //footer
     footer.text-center
+
+
