@@ -25,19 +25,6 @@
     <script src="plugins/fullcalendar/fullcalendar.js"></script>
     <script src="plugins/fullcalendar/gcal.min.js"></script>
     <script src="js/index.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-          $('#calendar').fullCalendar({
-              googleCalendarApiKey: 'AIzaSyBA8owMc6-Ozf9T9BTAEWufMSdVbOwb3hs',
-              events: {
-                  googleCalendarId: 'pnk42e02rmm3rtgd5f0aves4ac@group.calendar.google.com',
-                  className: 'gcal-event' // an option!
-              }
-          });
-      });
-      
-      
-    </script>
   </head>
   <body>
     <!--gotop-->
@@ -53,8 +40,8 @@
     </header>
     <!--main-->
     <main class="text-center">
-      <div class="container"><br><br><br>
-        <div id="calendar"></div>
+      <div class="container">
+        <div class="mt50" id="calendar"></div>
       </div>
     </main>
     <!--footer-->

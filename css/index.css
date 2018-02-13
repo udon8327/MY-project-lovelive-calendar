@@ -33,3 +33,6 @@ main .fc-other-month {
 
 main .fc-content-skeleton td {
   background-color: rgba(255, 255, 255, 0) !important; }
+
+main .fc-content span {
+  white-space: normal; }

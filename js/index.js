@@ -16,12 +16,17 @@ $(function(){
 
 $(document).ready(function() {
   $('#calendar').fullCalendar({
+    header: {
+      left: 'title',
+      right: 'today,prev,next,month,agendaWeek'
+    },
     googleCalendarApiKey: 'AIzaSyBA8owMc6-Ozf9T9BTAEWufMSdVbOwb3hs',
     events: {
         googleCalendarId: 'pnk42e02rmm3rtgd5f0aves4ac@group.calendar.google.com',
         className: 'gcal-event' // an option!
     }
   });
+
 });
 window.onload = function ()
 {

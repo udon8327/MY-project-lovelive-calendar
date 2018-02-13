@@ -26,17 +26,6 @@ html(lang='zh-Hant-TW')
     script(src='plugins/fullcalendar/fullcalendar.js')
     script(src='plugins/fullcalendar/gcal.min.js')
     script(src='js/index.js')
-    script(type='text/javascript').
-      $(document).ready(function() {
-          $('#calendar').fullCalendar({
-              googleCalendarApiKey: 'AIzaSyBA8owMc6-Ozf9T9BTAEWufMSdVbOwb3hs',
-              events: {
-                  googleCalendarId: 'pnk42e02rmm3rtgd5f0aves4ac@group.calendar.google.com',
-                  className: 'gcal-event' // an option!
-              }
-          });
-      });
-
 
   body
 
@@ -55,10 +44,7 @@ html(lang='zh-Hant-TW')
     //main
     main.text-center
       .container
-        br
-        br
-        br
-        #calendar
+        #calendar.mt50
 
     //footer
     footer.text-center
