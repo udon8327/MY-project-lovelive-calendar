@@ -2,6 +2,9 @@
 body {
   overflow-x: hidden;
   background: url(../img/bg1.jpg) no-repeat top center #4CBAD7;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
   font-family: "Helvetica Neue", Helvetica, "PingFang TC", "LiHei Pro", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", Arial ,sans-serif;
   background-size: 100%; }
 
@@ -9,7 +12,7 @@ main h2 {
   color: #34495E !important; }
 
 main .fc-unthemed td, main .fc-unthemed th {
-  border-color: #00a1e9 !important; }
+  border-color: #00a1e9; }
 
 main .fc-event {
   border: none !important; }
@@ -34,6 +37,9 @@ main .fc-sun, main .fc-sat {
 
 main .fc-today {
   background-color: rgba(0, 161, 233, 0.5) !important; }
+  main .fc-today span {
+    color: #fff;
+    text-shadow: 0 0 6px #002738; }
 
 main .fc-other-month {
   background-color: rgba(255, 255, 255, 0.2) !important; }
@@ -45,7 +51,7 @@ main .fc-content-skeleton td {
 
 main .fc-body .fc-row {
   min-height: 120px !important; }
-  @media (max-width: 991px) {
+  @media (max-width: 768px) {
     main .fc-body .fc-row {
       min-height: 80px !important; } }
 
@@ -60,7 +66,7 @@ main .wrap {
   white-space: normal; }
 
 main .fc-event-container span {
-  padding-left: 3px; }
+  padding-left: 2px; }
 
 main .fc-event-container img {
   position: absolute;
@@ -75,3 +81,6 @@ main .fc-time {
 
 .hidden {
   visibility: hidden; }
+
+footer p {
+  color: #fff; }

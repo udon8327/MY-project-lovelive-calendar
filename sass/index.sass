@@ -12,20 +12,16 @@ $c5: #3f94e3
 $c6: #4f49b2
 $c7: #8f17a7
 $c8: #e17f74
-$c9: #616161
+$c9: #944433
+$c0: #616161
 
 //body
 body
   overflow-x: hidden
   background: url(../img/bg1.jpg) no-repeat top center #4CBAD7
+  transition: all 0.2s ease
   font-family: "Helvetica Neue", Helvetica, "PingFang TC", "LiHei Pro", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", Arial ,sans-serif
   background-size: 100%
-
-//nav
-nav
-
-//header
-header
 
 //main
 main
@@ -33,7 +29,7 @@ main
   h2
     color: $text !important
   .fc-unthemed td,.fc-unthemed th
-    border-color: $aqours !important
+    border-color: $aqours
   .fc-event
     border: none !important
   .fc-day-grid-event
@@ -51,6 +47,9 @@ main
     background-color: rgba(255, 0, 0, 0.1) !important
   .fc-today
     background-color: rgba(0, 161, 233, 0.5) !important
+    span
+      color: #fff
+      text-shadow: 0 0 6px #002738
   .fc-other-month
     background-color: rgba(255, 255, 255, 0.2) !important
     td
@@ -60,7 +59,7 @@ main
   .fc-body
     .fc-row
       min-height: 120px !important
-      @media (max-width:991px)
+      @media (max-width: 768px)
         min-height: 80px !important
 
   //活動大小、內容超出
@@ -73,10 +72,11 @@ main
         white-space: normal
   .wrap
     white-space: normal
+
   //加入分類圖片
   .fc-event-container
     span
-      padding-left: 3px
+      padding-left: 2px
     img
       position: absolute
       width: 18px
@@ -84,6 +84,7 @@ main
       left: 2px
       top: 2px
       z-index: 20
+
   //隱藏活動時間
   .fc-time
     display: none
@@ -93,3 +94,5 @@ main
 
 //footer
 footer
+  p
+    color: #fff
