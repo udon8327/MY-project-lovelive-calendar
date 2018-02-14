@@ -9,7 +9,7 @@
     <meta name="keywords" content="網頁關鍵字">
     <meta name="author" content="Bohan Huang">
     <link rel="shortcut icon" href="img/.ico">
-    <title>LL行事曆</title>
+    <title>LoveLive! Calendar!!</title>
     <link rel="stylesheet" href="plugins/bootstrap-3.3.1-24/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/mycss.css">
     <link rel="stylesheet" href="css/index.css">
@@ -17,22 +17,22 @@
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!--script-->
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <!--script(src='https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js')-->
-    <script src="plugins/bootstrap-3.3.1-24/js/bootstrap.min.js"></script>
-    <script src="plugins/fullcalendar/moment.min.js"></script>
-    <script src="plugins/fullcalendar/fullcalendar.js"></script>
-    <script src="plugins/fullcalendar/gcal.min.js"></script>
-    <script src="js/index.js"></script>
   </head>
   <body>
     <!--gotop-->
-    <div id="gotop"><i class="glyphicon glyphicon-menu-up"></i></div>
+    <!--#gotop
+    i.glyphicon.glyphicon-menu-up
+    
+    -->
     <!--nav-->
     <nav class="text-center"></nav>
     <!--header-->
     <header class="text-center">
+      <button id="tm">主題</button>
+      <button id="b1">#1_O</button>
+      <button id="b2">#2_O</button>
+      <button id="b3">#3_O</button>
+      <button id="tk">展開</button>
       <!--h1.logo
       a(href='#') Aqours
       
@@ -41,10 +41,18 @@
     <!--main-->
     <main class="text-center">
       <div class="container">
-        <div class="mt50" id="calendar"></div>
+        <div class="mt15 mb50" id="calendar"></div>
       </div>
     </main>
     <!--footer-->
     <footer class="text-center"></footer>
+    <!--script-->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!--script(src='https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js')-->
+    <script src="plugins/bootstrap-3.3.1-24/js/bootstrap.min.js"></script>
+    <script src="plugins/fullcalendar/moment.min.js"></script>
+    <script src="plugins/fullcalendar/fullcalendar.js"></script>
+    <script src="plugins/fullcalendar/gcal.min.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

@@ -9,7 +9,7 @@ html(lang='zh-Hant-TW')
     meta(name='keywords' content='網頁關鍵字')
     meta(name='author' content='Bohan Huang')
     link(rel='shortcut icon' href='img/.ico')
-    title LL行事曆
+    title LoveLive! Calendar!!
     link(rel='stylesheet' href='plugins/bootstrap-3.3.1-24/css/bootstrap.min.css')
     link(rel='stylesheet' href='css/mycss.css')
     link(rel='stylesheet' href='css/index.css')
@@ -18,6 +18,35 @@ html(lang='zh-Hant-TW')
     |   <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     |   <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     | <![endif]-->
+
+  body
+
+    //gotop
+    //#gotop
+      i.glyphicon.glyphicon-menu-up
+
+    //nav
+    nav.text-center
+
+    //header
+    header.text-center
+      button#tm 主題
+      button#b1 #1_O
+      button#b2 #2_O
+      button#b3 #3_O
+      button#tk 展開
+      //h1.logo
+        a(href='#') Aqours
+
+    //main
+    main.text-center
+      .container
+        #calendar.mt15.mb50
+
+
+    //footer
+    footer.text-center
+
     //script
     script(src='js/jquery-2.1.4.min.js')
     //script(src='https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js')
@@ -26,27 +55,5 @@ html(lang='zh-Hant-TW')
     script(src='plugins/fullcalendar/fullcalendar.js')
     script(src='plugins/fullcalendar/gcal.min.js')
     script(src='js/index.js')
-
-  body
-
-    //gotop
-    #gotop
-      i.glyphicon.glyphicon-menu-up
-
-    //nav
-    nav.text-center
-
-    //header
-    header.text-center
-      //h1.logo
-        a(href='#') Aqours
-
-    //main
-    main.text-center
-      .container
-        #calendar.mt50
-
-    //footer
-    footer.text-center
 
 

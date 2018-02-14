@@ -2,6 +2,17 @@
 $main: #00BDB4
 $sub: #F58412
 $text: #34495E
+$aqours: #00a1e9
+$muse: #e5007f
+$c1: #cf2313
+$c2: #ee5a2a
+$c3: #efc337
+$c4: #158046
+$c5: #3f94e3
+$c6: #4f49b2
+$c7: #8f17a7
+$c8: #e17f74
+$c9: #616161
 
 //body
 body
@@ -18,8 +29,15 @@ header
 
 //main
 main
+  //行事曆樣式
   h2
     color: $text !important
+  .fc-unthemed td,.fc-unthemed th
+    border-color: $aqours !important
+  .fc-event
+    border: none !important
+  .fc-day-grid-event
+    margin: 1px 1px 0 1px
   .fc-event-container
     a
       border-radius: 0
@@ -32,16 +50,46 @@ main
   .fc-sun,.fc-sat
     background-color: rgba(255, 0, 0, 0.1) !important
   .fc-today
-    background-color: rgba(0, 0, 255, 0.2) !important
+    background-color: rgba(0, 161, 233, 0.5) !important
   .fc-other-month
     background-color: rgba(255, 255, 255, 0.2) !important
     td
       opacity: 0.2 !important
   .fc-content-skeleton td
     background-color: rgba(255, 255, 255, 0) !important
+  .fc-body
+    .fc-row
+      min-height: 120px !important
+      @media (max-width:991px)
+        min-height: 80px !important
+
+  //活動大小、內容超出
   .fc-content
     span
-      white-space: normal
+      font-size: 14px
+      line-height: 22px
+    &:hover
+      span
+        white-space: normal
+  .wrap
+    white-space: normal
+  //加入分類圖片
+  .fc-event-container
+    span
+      padding-left: 3px
+    img
+      position: absolute
+      width: 18px
+      height: 18px
+      left: 2px
+      top: 2px
+      z-index: 20
+  //隱藏活動時間
+  .fc-time
+    display: none
+
+.hidden
+  visibility: hidden
 
 //footer
 footer

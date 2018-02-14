@@ -8,6 +8,15 @@ body {
 main h2 {
   color: #34495E !important; }
 
+main .fc-unthemed td, main .fc-unthemed th {
+  border-color: #00a1e9 !important; }
+
+main .fc-event {
+  border: none !important; }
+
+main .fc-day-grid-event {
+  margin: 1px 1px 0 1px; }
+
 main .fc-event-container a {
   border-radius: 0; }
 
@@ -24,7 +33,7 @@ main .fc-sun, main .fc-sat {
   background-color: rgba(255, 0, 0, 0.1) !important; }
 
 main .fc-today {
-  background-color: rgba(0, 0, 255, 0.2) !important; }
+  background-color: rgba(0, 161, 233, 0.5) !important; }
 
 main .fc-other-month {
   background-color: rgba(255, 255, 255, 0.2) !important; }
@@ -34,5 +43,35 @@ main .fc-other-month {
 main .fc-content-skeleton td {
   background-color: rgba(255, 255, 255, 0) !important; }
 
+main .fc-body .fc-row {
+  min-height: 120px !important; }
+  @media (max-width: 991px) {
+    main .fc-body .fc-row {
+      min-height: 80px !important; } }
+
 main .fc-content span {
+  font-size: 14px;
+  line-height: 22px; }
+
+main .fc-content:hover span {
   white-space: normal; }
+
+main .wrap {
+  white-space: normal; }
+
+main .fc-event-container span {
+  padding-left: 3px; }
+
+main .fc-event-container img {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+  top: 2px;
+  z-index: 20; }
+
+main .fc-time {
+  display: none; }
+
+.hidden {
+  visibility: hidden; }
