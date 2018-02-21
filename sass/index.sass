@@ -11,45 +11,132 @@ $c4: #158046
 $c5: #3f94e3
 $c6: #4f49b2
 $c7: #8f17a7
-$c8: #e17f74
-$c9: #944433
+$c8: #944433
+$c9: #e17f74
 $c0: #616161
 
 //body
 body
   overflow-x: hidden
   background: url(../img/bg1.jpg) no-repeat top center #4CBAD7
-  transition: all 0.2s ease
   font-family: "Helvetica Neue", Helvetica, "PingFang TC", "LiHei Pro", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", Arial ,sans-serif
   background-size: 100%
+  transition: all 0.5s ease
+  @media (max-width:991px)
+    background: url(../img/bg1_m.jpg) no-repeat top center #4CBAD7
+    background-size: 100%
+
+//header
+header
+  //logo
+  .logo
+    margin-top: 2px
+  //主題鈕
+  #tm
+    padding: 0px
+    background-color: #fff
+    border: 3px solid $aqours
+    border-radius: 50px
+    cursor: pointer
+    margin: 0px 36px 0 10px
+    display: inline-block
+    transition: all 0.2s ease
+    &:hover
+      transform: scale(1.1)
+    img
+      width: 40px
+  //分類鈕
+  .cata
+    display: inline-block
+    padding: 16px 0
+    .catabtn
+      display: inline-block
+      padding: 6px
+      color: #fff
+      border-radius: 50px
+      cursor: pointer
+      transition: all 0.2s ease
+      img
+        transition: all 0.2s ease
+        width: 20px
+        margin: -3px 3px 0 0
+      &:hover
+        img
+          transform: scale(1.5) translateY(-5px)
+    #b1
+      background-color: $c1
+    #b2
+      background-color: $c2
+    #b3
+      background-color: $c3
+    #b4
+      background-color: $c4
+    #b5
+      background-color: $c5
+    #b6
+      background-color: $c6
+    #b7
+      background-color: $c7
+    #b8
+      background-color: $c8
+    #b9
+      background-color: $c9
+  //展開鈕
+  #tk
+    display: inline-block
+    cursor: pointer
+    padding: 10px
+    border-radius: 50px
+    background-color: $aqours
+    margin: 0 0 0 7px
+    transition: all 0.2s ease
+    &:hover
+      transform: scale(1.1)
+    img
+      width: 20px
+      height: 18px
+      transition: all 0.2s ease
+      transform: rotateX(180deg) translateY(1px)
+.tkon
+  transform: rotateX(0deg) !important
+
+.fc-right
+  margin-top: 16px !important
 
 //main
 main
   //行事曆樣式
   h2
-    color: $text !important
+    transition: all 0.2s ease
+    color: $aqours !important
+    font-weight: bold
   .fc-unthemed td,.fc-unthemed th
     border-color: $aqours
+    transition: all 0.2s ease
   .fc-event
     border: none !important
   .fc-day-grid-event
     margin: 1px 1px 0 1px
   .fc-event-container
+    z-index: 4
     a
       border-radius: 0
   .fc-unthemed td
-    background-color: rgba(255, 255, 255, 0.2)
+    background-color: rgba(255, 255, 255, 0.5)
   .fc-day-header
     background-color: rgba(255, 255, 255, 0.6)
   .fc-day-header.fc-sun,.fc-day-header.fc-sat
     background-color: rgba(255, 0, 0, 0.3) !important
   .fc-sun,.fc-sat
-    background-color: rgba(255, 0, 0, 0.1) !important
+    background-color: rgba(255, 0, 0, 0.2) !important
   .fc-today
-    background-color: rgba(0, 161, 233, 0.5) !important
+    background-color: rgba(0, 161, 233, 0.6) !important
     span
       color: #fff
-      text-shadow: 0 0 6px #002738
+  .tm2todaybc
+    background-color: rgba(228, 0, 127, 0.6) !important
+    span
+      color: #fff
   .fc-other-month
     background-color: rgba(255, 255, 255, 0.2) !important
     td
@@ -60,7 +147,11 @@ main
     .fc-row
       min-height: 120px !important
       @media (max-width: 768px)
-        min-height: 80px !important
+        min-height: 100px !important
+  .fc-bg td.fc-past
+    background-color: rgba(0,0,0,0.06)
+  .fc-header-toolbar
+    margin: 0 !important
 
   //活動大小、內容超出
   .fc-content
@@ -89,10 +180,58 @@ main
   .fc-time
     display: none
 
+  //月份按鈕樣式
+  //.fc-prev-button,.fc-next-button
+    background-color: $aqours !important
+    border-radius: 50px !important
+    border: none !important
+
+  //今天羽毛
+  td.fc-today
+    position: relative
+    #today
+      width: 50px
+      position: absolute
+      top: -20px
+      left: 15px
+      z-index: 3
+      animation: hane 5s infinite
+      @keyframes hane
+        0%
+          transform: translate(0px,-20px) rotate(10deg)
+          opacity: 0
+        25%
+          transform: translate(-20px,-10px) rotate(60deg)
+          opacity: 1
+        55%
+          transform: translate(20px,0px) rotate(20deg)
+        75%
+          opacity: 1
+        100%
+          transform: translate(-20px,10px) rotate(60deg)
+          opacity: 0
+      @media (max-width:767px)
+        width: 40px
+
+//js用class
 .hidden
   visibility: hidden
+.grey
+  background-color: #aaa !important
+.tm2cl
+  color: $muse !important
+.tm2bd
+  border-color: $muse !important
+.tm2bg
+  background: url(../img/bg3.jpg) no-repeat top center #fff !important
+  background-size: 100% !important
+.tm2bc
+  background-color: $muse !important
+.tran
+  transition: all 1s ease
 
 //footer
 footer
   p
     color: #fff
+    margin: 0
