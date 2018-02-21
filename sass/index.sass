@@ -20,7 +20,7 @@ body
   overflow-x: hidden
   background: url(../img/bg1.jpg) no-repeat top center #4CBAD7
   font-family: "Helvetica Neue", Helvetica, "PingFang TC", "LiHei Pro", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", Arial ,sans-serif
-  background-size: 100%
+  background-size: cover
   transition: all 0.5s ease
   @media (max-width:991px)
     background: url(../img/bg1_m.jpg) no-repeat top center #4CBAD7
@@ -49,6 +49,9 @@ header
   .cata
     display: inline-block
     padding: 16px 0
+    transition: all 3s ease
+    @media (max-width:991px)
+      display: none
     .catabtn
       display: inline-block
       padding: 6px
@@ -81,6 +84,22 @@ header
       background-color: $c8
     #b9
       background-color: $c9
+  //分類鈕_m
+  #cm
+    display: inline-block
+    cursor: pointer
+    padding: 10px
+    border-radius: 50px
+    background-color: $aqours
+    margin: 0 0 0 7px
+    transition: all 0.2s ease
+    @media (min-width:991px)
+      display: none
+    &:hover
+      transform: scale(1.1)
+    img
+      width: 20px
+      height: 18px
   //展開鈕
   #tk
     display: inline-block
@@ -97,6 +116,7 @@ header
       height: 18px
       transition: all 0.2s ease
       transform: rotateX(180deg) translateY(1px)
+
 .tkon
   transform: rotateX(0deg) !important
 
@@ -180,12 +200,6 @@ main
   .fc-time
     display: none
 
-  //月份按鈕樣式
-  //.fc-prev-button,.fc-next-button
-    background-color: $aqours !important
-    border-radius: 50px !important
-    border: none !important
-
   //今天羽毛
   td.fc-today
     position: relative
@@ -216,6 +230,8 @@ main
 //js用class
 .hidden
   visibility: hidden
+.visible
+  display: inline-block !important
 .grey
   background-color: #aaa !important
 .tm2cl
@@ -223,8 +239,11 @@ main
 .tm2bd
   border-color: $muse !important
 .tm2bg
-  background: url(../img/bg3.jpg) no-repeat top center #fff !important
-  background-size: 100% !important
+  background: url(../img/bg2.jpg) no-repeat top center #91d746 !important
+  background-size: cover !important
+  @media (max-width:991px)
+    background: url(../img/bg2_m.jpg) no-repeat top center #83d247 !important
+    background-size: 100% auto !important
 .tm2bc
   background-color: $muse !important
 .tran
@@ -232,6 +251,10 @@ main
 
 //footer
 footer
-  p
-    color: #fff
-    margin: 0
+  .copyright
+    margin: 50px 0 10px 0
+    @media (max-width:991px)
+      margin: 20px 0 5px 0
+    p
+      color: #fff
+      margin: 0

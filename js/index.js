@@ -18,6 +18,18 @@ $(document).ready(function() {
 $(function(){
   //today改今天
   $('.fc-today-button').text('今天');
+  //過濾鈕
+  var cmn = 0;
+  $('#cm').click(function(){
+    if(cmn==0){
+      $('header .cata').show();
+      $('#cm').after($('#tk'));
+      cmn = 1;
+    }else{
+      $('.cata').hide();
+      cmn = 0;
+    }
+  });
   //按鈕插入
   var header = $('header');
   $('.fc-left').prepend(header);
@@ -31,7 +43,7 @@ $(function(){
     $('h2').addClass('tm2cl');
     $('body').addClass('tm2bg');
     $('.fc-unthemed td,.fc-unthemed th,#tm').addClass('tm2bd');
-    $('#tk').addClass('tm2bc');
+    $('#tk#cm').addClass('tm2bc');
     $('main .fc-today').addClass('tm2todaybc');
   }
   $('#tm').click(function(){
@@ -41,7 +53,7 @@ $(function(){
       $('h2').addClass('tm2cl');
       $('body').addClass('tm2bg');
       $('.fc-unthemed td,.fc-unthemed th,#tm,fc-right').addClass('tm2bd');
-      $('#tk,main td.fc-today').addClass('tm2bc');
+      $('#tk,#cm,main td.fc-today').addClass('tm2bc');
       $('img#today').attr('src','img/hane_02.png');
       $('main .fc-today').addClass('tm2todaybc');
       localStorage.setItem("tm", '1');
@@ -50,7 +62,7 @@ $(function(){
       $('h2').removeClass('tm2cl');
       $('body').removeClass('tm2bg');
       $('.fc-unthemed td,.fc-unthemed th,#tm,fc-right').removeClass('tm2bd');
-      $('#tk,main td.fc-today').removeClass('tm2bc');
+      $('#tk,#cm,main td.fc-today').removeClass('tm2bc');
       $('img#today').attr('src','img/hane_01.png');
       $('main .fc-today').removeClass('tm2todaybc');
       localStorage.setItem("tm", '0');
@@ -81,13 +93,13 @@ window.onload = function (){
   //分類開關
   function cata(){
     function cataf(a,b,c){
-      a = localStorage.getItem(b);
+      var a = localStorage.getItem(b);
       if(a==0){
         $('.fc-content span:contains('+b+')').parent().parent().addClass('hidden');
         $(c).addClass('grey').children().attr('src','img/cata_close.png');
       }
       $(c).click(function(){
-        a = localStorage.getItem(b);
+        var a = localStorage.getItem(b);
         if(a==0){
           $('.fc-content span:contains('+b+')').parent().parent().removeClass('hidden');
           localStorage.setItem(b, '1');
@@ -136,6 +148,10 @@ window.onload = function (){
   $('.fc-right').click(function(){
     function page(t){
       window.setTimeout(function() {
+        var tmn = localStorage.getItem("tm");
+        if(tmn==1){
+          $('main .fc-today').addClass('tm2todaybc');
+        }
         $('a.fc-event').removeAttr('href');
         color();
         cata();

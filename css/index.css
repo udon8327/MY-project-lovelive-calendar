@@ -3,7 +3,7 @@ body {
   overflow-x: hidden;
   background: url(../img/bg1.jpg) no-repeat top center #4CBAD7;
   font-family: "Helvetica Neue", Helvetica, "PingFang TC", "LiHei Pro", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", Arial ,sans-serif;
-  background-size: 100%;
+  background-size: cover;
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease; }
@@ -35,7 +35,13 @@ header #tm {
 
 header .cata {
   display: inline-block;
-  padding: 16px 0; }
+  padding: 16px 0;
+  -webkit-transition: all 3s ease;
+  -o-transition: all 3s ease;
+  transition: all 3s ease; }
+  @media (max-width: 991px) {
+    header .cata {
+      display: none; } }
   header .cata .catabtn {
     display: inline-block;
     padding: 6px;
@@ -73,6 +79,27 @@ header .cata {
     background-color: #944433; }
   header .cata #b9 {
     background-color: #e17f74; }
+
+header #cm {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #00a1e9;
+  margin: 0 0 0 7px;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+  @media (min-width: 991px) {
+    header #cm {
+      display: none; } }
+  header #cm:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1); }
+  header #cm img {
+    width: 20px;
+    height: 18px; }
 
 header #tk {
   display: inline-block;
@@ -249,6 +276,9 @@ main td.fc-today {
 .hidden {
   visibility: hidden; }
 
+.visible {
+  display: inline-block !important; }
+
 .grey {
   background-color: #aaa !important; }
 
@@ -259,8 +289,12 @@ main td.fc-today {
   border-color: #e5007f !important; }
 
 .tm2bg {
-  background: url(../img/bg3.jpg) no-repeat top center #fff !important;
-  background-size: 100% !important; }
+  background: url(../img/bg2.jpg) no-repeat top center #91d746 !important;
+  background-size: cover !important; }
+  @media (max-width: 991px) {
+    .tm2bg {
+      background: url(../img/bg2_m.jpg) no-repeat top center #83d247 !important;
+      background-size: 100% auto !important; } }
 
 .tm2bc {
   background-color: #e5007f !important; }
@@ -270,6 +304,11 @@ main td.fc-today {
   -o-transition: all 1s ease;
   transition: all 1s ease; }
 
-footer p {
-  color: #fff;
-  margin: 0; }
+footer .copyright {
+  margin: 50px 0 10px 0; }
+  @media (max-width: 991px) {
+    footer .copyright {
+      margin: 20px 0 5px 0; } }
+  footer .copyright p {
+    color: #fff;
+    margin: 0; }
