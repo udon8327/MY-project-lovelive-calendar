@@ -10,7 +10,10 @@ body {
   @media (max-width: 991px) {
     body {
       background: url(../img/bg1_m.jpg) no-repeat top center #4CBAD7;
-      background-size: 100%; } }
+      background-size: 100%;
+      -webkit-transition: none;
+      -o-transition: none;
+      transition: none; } }
 
 header .logo {
   margin-top: 2px; }
@@ -30,18 +33,26 @@ header #tm {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1); }
+    @media (max-width: 991px) {
+      header #tm:hover {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1); } }
   header #tm img {
     width: 40px; }
 
 header .cata {
   display: inline-block;
   padding: 16px 0;
-  -webkit-transition: all 3s ease;
-  -o-transition: all 3s ease;
-  transition: all 3s ease; }
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
   @media (max-width: 991px) {
     header .cata {
       display: none; } }
+  @media (max-width: 991px) {
+    header .cata {
+      padding: 16px 0 0 0; } }
   header .cata .catabtn {
     display: inline-block;
     padding: 6px;
@@ -51,6 +62,9 @@ header .cata {
     -webkit-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease; }
+    @media (max-width: 991px) {
+      header .cata .catabtn {
+        margin-top: 4px; } }
     header .cata .catabtn img {
       -webkit-transition: all 0.2s ease;
       -o-transition: all 0.2s ease;
@@ -93,10 +107,19 @@ header #cm {
   @media (min-width: 991px) {
     header #cm {
       display: none; } }
+  @media (max-width: 991px) {
+    header #cm {
+      margin: 8px 0 0 0px;
+      padding: 12px; } }
   header #cm:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1); }
+    @media (max-width: 991px) {
+      header #cm:hover {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1); } }
   header #cm img {
     width: 20px;
     height: 18px; }
@@ -111,10 +134,19 @@ header #tk {
   -webkit-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease; }
+  @media (max-width: 991px) {
+    header #tk {
+      margin: 8px 0 0 8px;
+      padding: 12px; } }
   header #tk:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1); }
+    @media (max-width: 991px) {
+      header #tk:hover {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1); } }
   header #tk img {
     width: 20px;
     height: 18px;
@@ -130,6 +162,17 @@ header #tk {
 
 .fc-right {
   margin-top: 16px !important; }
+  @media (max-width: 991px) {
+    .fc-right {
+      width: 100%;
+      float: left !important; }
+      .fc-right .fc-button-group, .fc-right .fc-today-button {
+        float: right !important;
+        margin-bottom: 6px; }
+      .fc-right .fc-button-group {
+        margin-right: 10px; }
+      .fc-right h2 {
+        margin-left: 10px !important; } }
 
 main h2 {
   -webkit-transition: all 0.2s ease;
@@ -298,11 +341,6 @@ main td.fc-today {
 
 .tm2bc {
   background-color: #e5007f !important; }
-
-.tran {
-  -webkit-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease; }
 
 footer .copyright {
   margin: 50px 0 10px 0; }
