@@ -1,5 +1,5 @@
-//日曆連結
-$(document).ready(function() {
+//日曆本體
+$(function() {
   $('#calendar').fullCalendar({
     googleCalendarApiKey: 'AIzaSyBA8owMc6-Ozf9T9BTAEWufMSdVbOwb3hs',
     events: {
@@ -16,23 +16,10 @@ $(document).ready(function() {
 
       //分類開關
       function cataf(a,b,c){
-        var a = localStorage.getItem(b);
+        a = localStorage.getItem(b);
         if(a==0){
           $('.fc-content span:contains('+b+')').parent().parent().addClass('hidden');
-          $(c).addClass('grey').children().attr('src','img/cata_close.png');
         }
-        $(c).click(function(){
-          var a = localStorage.getItem(b);
-          if(a==0){
-            $('.fc-content span:contains('+b+')').parent().parent().removeClass('hidden');
-            localStorage.setItem(b, '1');
-            $(c).removeClass('grey').children().attr('src','img/cata_0'+b.charAt(1)+'.png');
-          }else{
-            $('.fc-content span:contains('+b+')').parent().parent().addClass('hidden');
-            localStorage.setItem(b, '0');
-            $(c).addClass('grey').children().attr('src','img/cata_close.png');
-          }
-        });
       }
       cataf('str1','#1','#b1');
       cataf('str2','#2','#b2');
@@ -51,27 +38,27 @@ $(document).ready(function() {
         $(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png">');
       })
 
-      //羽毛切換
+      //今天背景色,羽毛切換
       var tmn = localStorage.getItem("tm");
       $('td.fc-today').prepend('<img id="today" src="img/hane_01.png">');
       if(tmn==1){
         $('img#today').attr('src','img/hane_02.png');
+        $('main .fc-today').addClass('tm2todaybc');
       }
 
       //移除活動連結
       $('a.fc-event').removeAttr('href');
-
-      //今天背景色
-      var tmn = localStorage.getItem("tm");
-      if(tmn==1){
-        $('main .fc-today').addClass('tm2todaybc');
-      }
 
     }
   });
 });
 
 $(function(){
+
+  //延時加入transition
+  setTimeout(function(){
+    $('body,h2,.fc-unthemed td,.fc-unthemed th').addClass('tran');
+  },100);
 
   //展開按鈕
   $('#tk').click(function(){
@@ -111,10 +98,14 @@ $(function(){
     $('h2').addClass('tm2cl');
     $('body').addClass('tm2bg');
     $('.fc-unthemed td,.fc-unthemed th,#tm').addClass('tm2bd');
-    $('#tk#cm').addClass('tm2bc');
+    $('#tk,#cm').addClass('tm2bc');
     $('main .fc-today').addClass('tm2todaybc');
   }
   $('#tm').click(function(){
+    $('#tm').addClass('tmanime');
+    setTimeout(function(){
+      $('#tm').removeClass('tmanime');
+    },200);
     var tmn = localStorage.getItem("tm");
     if(tmn==0){
       $('#tm img').attr('src','img/theme2.png');
@@ -137,14 +128,46 @@ $(function(){
     }
   });
 
+  //切月份時更改表格邊框顏色
   $('.fc-right').click(function(){
+    $('#tk img').removeClass('tkon');
     var tmn = localStorage.getItem("tm");
     if(tmn==1){
       $('.fc-unthemed td,.fc-unthemed th,#tm').addClass('tm2bd');
     }
   });
 
+  //分類開關
+  function cataf(a,b,c){
+    a = localStorage.getItem(b);
+    if(a==0){
+      $(c).addClass('grey').children().attr('src','img/cata_close.png');
+    }
+    $(c).click(function(){
+      a = localStorage.getItem(b);
+      if(a==0){
+        $('.fc-content span:contains('+b+')').parent().parent().removeClass('hidden');
+        localStorage.setItem(b, '1');
+        $(c).removeClass('grey').children().attr('src','img/cata_0'+b.charAt(1)+'.png');
+      }else{
+        $('.fc-content span:contains('+b+')').parent().parent().addClass('hidden');
+        localStorage.setItem(b, '0');
+        $(c).addClass('grey').children().attr('src','img/cata_close.png');
+      }
+    });
+  }
+  cataf('str1','#1','#b1');
+  cataf('str2','#2','#b2');
+  cataf('str3','#3','#b3');
+  cataf('str4','#4','#b4');
+  cataf('str5','#5','#b5');
+  cataf('str6','#6','#b6');
+  cataf('str7','#7','#b7');
+  cataf('str8','#8','#b8');
+  cataf('str9','#9','#b9');
+
 });
+
 
 
 

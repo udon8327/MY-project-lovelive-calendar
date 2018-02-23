@@ -1,12 +1,12 @@
 @charset "UTF-8";
 body {
   overflow-x: hidden;
-  background: url(../img/bg1.jpg) no-repeat top center #4CBAD7;
+  background: url(../img/bg1.jpg) repeat-x top center #4CBAD7;
   font-family: "Helvetica Neue", Helvetica, "PingFang TC", "LiHei Pro", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", Arial ,sans-serif;
-  background-size: cover;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
   @media (max-width: 991px) {
     body {
       background: url(../img/bg1_m.jpg) no-repeat top center #4CBAD7;
@@ -101,9 +101,9 @@ header #cm {
   border-radius: 50px;
   background-color: #00a1e9;
   margin: 0 0 0 7px;
-  -webkit-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease; }
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
   @media (min-width: 991px) {
     header #cm {
       display: none; } }
@@ -131,9 +131,9 @@ header #tk {
   border-radius: 50px;
   background-color: #00a1e9;
   margin: 0 0 0 7px;
-  -webkit-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease; }
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
   @media (max-width: 991px) {
     header #tk {
       margin: 8px 0 0 8px;
@@ -175,17 +175,11 @@ header #tk {
         margin-left: 10px !important; } }
 
 main h2 {
-  -webkit-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
   color: #00a1e9 !important;
   font-weight: bold; }
 
 main .fc-unthemed td, main .fc-unthemed th {
-  border-color: #00a1e9;
-  -webkit-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease; }
+  border-color: #00a1e9; }
 
 main .fc-event {
   border: none !important; }
@@ -245,10 +239,12 @@ main .fc-content span {
   line-height: 22px; }
 
 main .fc-content:hover span {
-  white-space: normal; }
+  white-space: normal;
+  word-break: break-all; }
 
 main .wrap {
-  white-space: normal; }
+  white-space: normal;
+  word-break: break-all; }
 
 main .fc-event-container span {
   padding-left: 2px; }
@@ -317,7 +313,7 @@ main td.fc-today {
         width: 40px; } }
 
 .hidden {
-  visibility: hidden; }
+  display: none; }
 
 .visible {
   display: inline-block !important; }
@@ -332,8 +328,7 @@ main td.fc-today {
   border-color: #e5007f !important; }
 
 .tm2bg {
-  background: url(../img/bg2.jpg) no-repeat top center #91d746 !important;
-  background-size: cover !important; }
+  background: url(../img/bg2.jpg) repeat-x top center #91d746 !important; }
   @media (max-width: 991px) {
     .tm2bg {
       background: url(../img/bg2_m.jpg) no-repeat top center #83d247 !important;
@@ -342,11 +337,64 @@ main td.fc-today {
 .tm2bc {
   background-color: #e5007f !important; }
 
+.tmanime {
+  -webkit-animation: tmanime 0.2s;
+  animation: tmanime 0.2s; }
+
+@-webkit-keyframes tmanime {
+  0% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg); }
+  50% {
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg); }
+  100% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg); } }
+
+@keyframes tmanime {
+  0% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg); }
+  50% {
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg); }
+  100% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg); } }
+
+.tran {
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
 footer .copyright {
   margin: 50px 0 10px 0; }
   @media (max-width: 991px) {
     footer .copyright {
       margin: 20px 0 5px 0; } }
-  footer .copyright p {
+  footer .copyright span {
     color: #fff;
     margin: 0; }
+  footer .copyright a#kanri {
+    display: inline-block;
+    color: #666;
+    text-decoration: underline;
+    padding-left: 5px;
+    cursor: pointer; }
+  footer .copyright a#mail {
+    background: url("../img/mail.jpg") no-repeat top center;
+    width: 25px;
+    height: 17px;
+    background-size: 100%;
+    display: inline-block;
+    -webkit-transform: translate(10px, 4px);
+    -ms-transform: translate(10px, 4px);
+    transform: translate(10px, 4px);
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
+    footer .copyright a#mail:hover {
+      -webkit-transform: scale(1.5) translate(10px, 4px);
+      -ms-transform: scale(1.5) translate(10px, 4px);
+      transform: scale(1.5) translate(10px, 4px); }

@@ -3,7 +3,6 @@ html(lang='zh-Hant-TW')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    //meta(name='viewport' content='width=device-width initial-scale=1.0')
     meta(name='viewport' content='width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no')
     meta(name='description' content='網頁描述')
     meta(name='keywords' content='LoveLive! Calendar!!,LoveLive Calendar,LL Calendar,LoveLive行事曆,LL行事曆,LoveLive月曆,LL月曆')
@@ -13,14 +12,13 @@ html(lang='zh-Hant-TW')
     link(rel='stylesheet' href='plugins/bootstrap-3.3.1-24/css/bootstrap.min.css')
     link(rel='stylesheet' href='css/mycss.css')
     link(rel='stylesheet' href='css/index.css')
-    link(rel='stylesheet', href='plugins/fullcalendar/fullcalendar.css')
+    link(rel='stylesheet', href='plugins/fullcalendar/fullcalendar.min.css')
     | <!--[if lt IE 9]>
     |   <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     |   <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     | <![endif]-->
 
   body
-
     //header
     header.text-left
       h1.logo
@@ -68,16 +66,18 @@ html(lang='zh-Hant-TW')
     //footer
     footer.text-center
       .copyright
-        p LoveLive! Calendar!! ver1.0.0
-        p 本站由 kashiwa27 (udon8327@gmail.com) 開發與維護
+        span LoveLive! Calendar!! ver1.0.2
+        a#kanri 管理者
+        br
+        span 本站由 UDON (kashiwa27) 開發與維護
+        a#mail(href='mailto: udon8327@gmail.com')
 
     //script
     script(src='js/jquery-2.1.4.min.js')
-    //script(src='https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js')
     script(src='plugins/bootstrap-3.3.1-24/js/bootstrap.min.js')
     script(src='plugins/fullcalendar/moment.min.js')
-    script(src='plugins/fullcalendar/fullcalendar.js')
+    script(src='plugins/fullcalendar/fullcalendar.min.js')
     script(src='plugins/fullcalendar/gcal.min.js')
-    script(src='js/index.js')
+    script(src='js/index-dist.js')
 
 
