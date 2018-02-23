@@ -36,7 +36,7 @@ $(function() {
       $('span.fc-title').each(function(){
         var i = $(this).text()[1];
         $(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png">');
-      })
+      });
 
       //今天背景色,羽毛切換
       var tmn = localStorage.getItem("tm");
@@ -73,20 +73,14 @@ $(function(){
     $('#cm').after($('#tk'));
     $('.fc-today-button').before($('.fc-button-group'))
   }
-  var cmn = 0;
   $('#cm').click(function(){
-    if(cmn==0){
-      $('.cata').show();
-      cmn = 1;
-    }else{
-      $('.cata').hide();
-      cmn = 0;
-    }
+    $('.cata').toggleClass('visible');
   });
 
-  //按鈕插入
-  var header = $('header');
-  $('.fc-left').prepend(header);
+  //header插入.fc-left
+  $('.fc-left').prepend($('header'));
+
+  //展開鈕
   $('#tk').click(function(){
     $('#tk img').toggleClass('tkon');
   })

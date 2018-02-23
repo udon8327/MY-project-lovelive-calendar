@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(_mycss.css);
 body {
   overflow-x: hidden;
   background: url(../img/bg1.jpg) repeat-x top center #4CBAD7;
