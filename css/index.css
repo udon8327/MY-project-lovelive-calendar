@@ -44,10 +44,7 @@ header #tm {
 
 header .cata {
   display: inline-block;
-  padding: 16px 0;
-  -webkit-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease; }
+  padding: 16px 0; }
   @media (max-width: 991px) {
     header .cata {
       display: none; } }
@@ -60,22 +57,21 @@ header .cata {
     color: #fff;
     border-radius: 50px;
     cursor: pointer;
-    -webkit-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease; }
+    -webkit-transition: -webkit-transform 0.2s ease;
+    transition: -webkit-transform 0.2s ease;
+    -o-transition: transform 0.2s ease;
+    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, -webkit-transform 0.2s ease; }
+    header .cata .catabtn:hover {
+      -webkit-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+      transform: translateY(-3px); }
     @media (max-width: 991px) {
       header .cata .catabtn {
         margin-top: 4px; } }
     header .cata .catabtn img {
-      -webkit-transition: all 0.2s ease;
-      -o-transition: all 0.2s ease;
-      transition: all 0.2s ease;
       width: 20px;
       margin: -3px 3px 0 0; }
-    header .cata .catabtn:hover img {
-      -webkit-transform: scale(1.5) translateY(-5px);
-      -ms-transform: scale(1.5) translateY(-5px);
-      transform: scale(1.5) translateY(-5px); }
   header .cata #b1 {
     background-color: #cf2313; }
   header .cata #b2 {
@@ -132,9 +128,9 @@ header #tk {
   border-radius: 50px;
   background-color: #00a1e9;
   margin: 0 0 0 7px;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
   @media (max-width: 991px) {
     header #tk {
       margin: 8px 0 0 8px;
@@ -252,10 +248,10 @@ main .fc-event-container span {
 
 main .fc-event-container img {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  left: 2px;
-  top: 2px;
+  width: 20px;
+  height: 20px;
+  left: 1px;
+  top: 1px;
   z-index: 20; }
 
 main .fc-time {
@@ -365,9 +361,9 @@ main td.fc-today {
     transform: rotateY(0deg); } }
 
 .tran {
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
 
 footer .copyright {
   margin: 50px 0 10px 0; }
@@ -379,7 +375,7 @@ footer .copyright {
     margin: 0; }
   footer .copyright a#kanri {
     display: inline-block;
-    color: #666;
+    color: #fff;
     text-decoration: underline;
     padding-left: 5px;
     cursor: pointer; }
