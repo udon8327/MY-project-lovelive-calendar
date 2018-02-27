@@ -49,6 +49,11 @@ $(function() {
       //移除活動連結
       $('a.fc-event').removeAttr('href');
 
+      //事件點擊展開
+      $('.fc-event').click(function(){
+        $(this).children().children().toggleClass('wrapone');
+      });
+
     }
   });
 });
@@ -62,7 +67,7 @@ $(function(){
 
   //展開按鈕
   $('#tk').click(function(){
-    $('.fc-content span').toggleClass('wrap');
+    $('.fc-content span').removeClass('wrapone').toggleClass('wrap');
   });
 
   //today改今天

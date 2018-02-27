@@ -195,19 +195,22 @@ main
     background-color: rgba(0,0,0,0.06)
   .fc-header-toolbar
     margin: 0 !important
+  //自動調整事件內容高度
+  #calendar > div.fc-view-container > div > table > tbody > tr > td > div > div > div
+    min-height: 144px !important
+    @media (max-width:767px)
+      min-height: 100px !important
 
   //活動大小、內容超出
   .fc-content
     span
       font-size: 14px
       line-height: 22px
-    &:hover
+  @media (min-width: 992px)
+    .fc-content:hover
       span
-        white-space: normal
-        word-break: break-all
-  .wrap
-    white-space: normal
-    word-break: break-all
+        white-space: normal !important
+        word-break: break-all !important
 
   //加入分類圖片
   .fc-event-container
@@ -253,6 +256,9 @@ main
         width: 40px
 
 //js用class
+.wrap,.wrapone
+  white-space: normal
+  word-break: break-all
 .hidden
   display: none
 .visible

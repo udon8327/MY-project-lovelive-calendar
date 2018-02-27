@@ -231,17 +231,20 @@ main .fc-bg td.fc-past {
 main .fc-header-toolbar {
   margin: 0 !important; }
 
+main #calendar > div.fc-view-container > div > table > tbody > tr > td > div > div > div {
+  min-height: 144px !important; }
+  @media (max-width: 767px) {
+    main #calendar > div.fc-view-container > div > table > tbody > tr > td > div > div > div {
+      min-height: 100px !important; } }
+
 main .fc-content span {
   font-size: 14px;
   line-height: 22px; }
 
-main .fc-content:hover span {
-  white-space: normal;
-  word-break: break-all; }
-
-main .wrap {
-  white-space: normal;
-  word-break: break-all; }
+@media (min-width: 992px) {
+  main .fc-content:hover span {
+    white-space: normal !important;
+    word-break: break-all !important; } }
 
 main .fc-event-container span {
   padding-left: 2px; }
@@ -308,6 +311,10 @@ main td.fc-today {
     @media (max-width: 767px) {
       main td.fc-today #today {
         width: 40px; } }
+
+.wrap, .wrapone {
+  white-space: normal;
+  word-break: break-all; }
 
 .hidden {
   display: none; }
