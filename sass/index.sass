@@ -263,6 +263,13 @@ main
   display: none
 .visible
   display: inline-block !important
+.visibleanime
+  animation: visibleanime 1s
+  @keyframes visibleanime
+    0%
+      bottom: 
+    100%
+      display: inline-block !important
 .grey
   background-color: #aaa !important
 .tm2cl
@@ -291,13 +298,14 @@ main
 //footer
 footer
   .copyright
+    position: relative
     margin: 50px 0 10px 0
     @media (max-width:991px)
       margin: 20px 0 5px 0
     span
       color: #fff
       margin: 0
-    a#kanri
+    a#kanri,a#statement
       display: inline-block
       color: #fff
       text-decoration: underline
@@ -311,5 +319,37 @@ footer
       display: inline-block
       transform: translate(10px,4px)
       transition: all 0.2s ease
-      &:hover
-        transform: scale(1.5) translate(10px,4px)
+    a#plurk
+      background: url('../img/plurk.png') no-repeat top center
+      width: 20px
+      height: 20px
+      background-size: 100%
+      display: inline-block
+      transform: translate(5px,4px)
+      transition: all 0.2s ease
+  .kanri,.statement
+    display: none
+    background-color: #fffdf8
+    width: 180px
+    padding: 10px 0
+    border-radius: 5px
+    position: fixed
+    bottom: 60px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 5
+    img#close
+      cursor: pointer
+      border-radius: 50px
+      width: 20px
+      position: absolute
+      right: 4px
+      top: 4px
+    p,span
+      margin: 0
+      color: $text
+  .statement
+    width: 240px
+    padding: 10px
+    #cc
+      padding: 6px 0 0px 0

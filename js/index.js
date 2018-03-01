@@ -165,6 +165,22 @@ $(function(){
   cataf('str8','#8','#b8');
   cataf('str9','#9','#b9');
 
+  //管理人與聲明視窗
+  $('#kanri').click(function(){
+    $('.kanri').toggleClass('visible');
+    $('.statement').removeClass('visible');
+  });
+  $('.kanri img').click(function(){
+    $('.kanri').removeClass('visible');
+  });
+  $('#statement').click(function(){
+    $('.statement').toggleClass('visible');
+    $('.kanri').removeClass('visible');
+  });
+  $('.statement img').click(function(){
+    $('.statement').removeClass('visible');
+  });
+
 });
 
 

@@ -322,6 +322,18 @@ main td.fc-today {
 .visible {
   display: inline-block !important; }
 
+.visibleanime {
+  -webkit-animation: visibleanime 1s;
+  animation: visibleanime 1s; }
+
+@-webkit-keyframes visibleanime {
+  100% {
+    display: inline-block !important; } }
+
+@keyframes visibleanime {
+  100% {
+    display: inline-block !important; } }
+
 .grey {
   background-color: #aaa !important; }
 
@@ -373,6 +385,7 @@ main td.fc-today {
   transition: all 0.2s ease; }
 
 footer .copyright {
+  position: relative;
   margin: 50px 0 10px 0; }
   @media (max-width: 991px) {
     footer .copyright {
@@ -380,7 +393,7 @@ footer .copyright {
   footer .copyright span {
     color: #fff;
     margin: 0; }
-  footer .copyright a#kanri {
+  footer .copyright a#kanri, footer .copyright a#statement {
     display: inline-block;
     color: #fff;
     text-decoration: underline;
@@ -398,7 +411,45 @@ footer .copyright {
     -webkit-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease; }
-    footer .copyright a#mail:hover {
-      -webkit-transform: scale(1.5) translate(10px, 4px);
-      -ms-transform: scale(1.5) translate(10px, 4px);
-      transform: scale(1.5) translate(10px, 4px); }
+  footer .copyright a#plurk {
+    background: url("../img/plurk.png") no-repeat top center;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    display: inline-block;
+    -webkit-transform: translate(5px, 4px);
+    -ms-transform: translate(5px, 4px);
+    transform: translate(5px, 4px);
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
+
+footer .kanri, footer .statement {
+  display: none;
+  background-color: #fffdf8;
+  width: 180px;
+  padding: 10px 0;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 5; }
+  footer .kanri img#close, footer .statement img#close {
+    cursor: pointer;
+    border-radius: 50px;
+    width: 20px;
+    position: absolute;
+    right: 4px;
+    top: 4px; }
+  footer .kanri p, footer .kanri span, footer .statement p, footer .statement span {
+    margin: 0;
+    color: #34495E; }
+
+footer .statement {
+  width: 240px;
+  padding: 10px; }
+  footer .statement #cc {
+    padding: 6px 0 0px 0; }
