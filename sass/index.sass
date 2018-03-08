@@ -29,7 +29,12 @@ body
     transition: none
 
 //header
+@media (max-width:991px)
+  .fc-left
+    width: 100% !important
 header
+  @media (max-width:991px)
+    width: 100% !important
   //logo
   .logo
     margin-top: 2px
@@ -43,6 +48,8 @@ header
     margin: 0px 36px 0 10px
     display: inline-block
     transition: all 0.2s ease
+    @media (max-width: 359px)
+      margin: 0
     &:hover
       transform: scale(1.1)
       @media (max-width:991px)
@@ -120,7 +127,7 @@ header
     margin: 0 0 0 7px
     transition: all 0.2s ease
     @media (max-width:991px)
-      margin: 8px 0 0 8px
+      margin: 8px 8px 0 8px
       padding: 12px
     &:hover
       transform: scale(1.1)
@@ -297,6 +304,10 @@ main
 
 //footer
 footer
+  @media (max-width:767px)
+    .copyright
+      text-align: left !important
+      margin-left: 10px !important
   .copyright
     position: relative
     margin: 50px 0 10px 0
