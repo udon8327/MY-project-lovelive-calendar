@@ -11,7 +11,7 @@ html(lang='zh-Hant-TW')
     title LoveLive! Calendar!!
     link(rel='stylesheet' href='plugins/bootstrap-3.3.1-24/css/bootstrap.min.css')
     link(rel='stylesheet', href='plugins/fullcalendar/fullcalendar.min.css')
-    link(rel='stylesheet' href='css/index.css')
+    link(rel='stylesheet' href='css/index.css?v=20180318')
     | <!--[if lt IE 9]>
     |   <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     |   <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -25,41 +25,67 @@ html(lang='zh-Hant-TW')
       gtag('config', 'UA-114926771-1');
 
   body
+
+    //gotop
+    #gotop
+      i.glyphicon.glyphicon-menu-up
+
     //header
     header.text-right
       h1.logo
-        a(href='#') Lovelive! Calendar!!
+        a(href='http://www.udonsite.com/lovelivecalendar/') Lovelive! Calendar!!
       .theme#tm
         img(src='img/theme1.png',alt='')
       .cata_m#cm
         img(src='img/fliter.png',alt='')
       .cata.text-center
+        .catabtn#muse
+          img.g1(src='img/cata_0u.png',alt='')
+          br
+          span 繆斯
+        .catabtn#aqours
+          img.g1(src='img/cata_0a.png',alt='')
+          br
+          span 水團
+        .catabtn#niji
+          img.g1(src='img/cata_0n.png',alt='')
+          br
+          span 虹咲
         .catabtn#b1
           img.g1(src='img/cata_01.png',alt='')
+          br
           span 活動
         .catabtn#b2
           img(src='img/cata_02.png',alt='')
+          br
           span 商品
         .catabtn#b3
           img(src='img/cata_03.png',alt='')
+          br
           span 生日
         .catabtn#b4
           img(src='img/cata_04.png',alt='')
+          br
           span 書籍
         .catabtn#b5
           img(src='img/cata_05.png',alt='')
+          br
           span 廣播
         .catabtn#b6
           img(src='img/cata_06.png',alt='')
+          br
           span 遊戲
         .catabtn#b7
           img(src='img/cata_07.png',alt='')
+          br
           span 聲優
         .catabtn#b8
           img(src='img/cata_08.png',alt='')
+          br
           span 期限
         .catabtn#b9
           img(src='img/cata_09.png',alt='')
+          br
           span 其他
       .openbtn#tk
         img(src='img/arrow.png',alt='')
@@ -72,7 +98,7 @@ html(lang='zh-Hant-TW')
     //footer
     footer.text-center
       .copyright
-        span LoveLive! Calendar!! ver1.0.0
+        span LoveLive! Calendar!! ver1.1.0
         a#kanri 管理人
         a#statement 聲明
         br
@@ -82,15 +108,27 @@ html(lang='zh-Hant-TW')
       .kanri
         p 行事曆事件管理人
         p kashiwa27
+        p YuiiAnitima
+        p sunmonth
+        p LODAM
         img#close(src='img/cata_close.png',alt='')
       .statement
         span 本站為粉絲自製非營利網站，
         br
-        span 部份圖像屬於
+        span 部份圖像版權屬於
+        br
+        a(href='http://www.lovelive-anime.jp/otonokizaka/',target='_blank') ラブライブ！
+        span 、
+        br
         a(href='http://www.lovelive-anime.jp/uranohoshi/',target='_blank') ラブライブ！サンシャイン！！
-        | 與
+        span 、
+        br
+        a(href='https://lovelive-puchiguru.jp/',target='_blank') ぷちぐるラブライブ！
+        span 、
+        br
         a(href='http://realdgame.jp/',target='_blank') SCRAP
-        | 所有
+        br
+        span 所有
         br
         a(rel='license', href='http://creativecommons.org/licenses/by-nc-nd/3.0/tw/' target='_black')
           img#cc(alt='創用 CC 授權條款', src='https://i.creativecommons.org/l/by-nc-nd/3.0/tw/88x31.png')
@@ -102,9 +140,10 @@ html(lang='zh-Hant-TW')
     script(src='plugins/fullcalendar/moment.min.js')
     script(src='plugins/fullcalendar/fullcalendar.min.js')
     script(src='plugins/fullcalendar/gcal.min.js')
-    script(src='js/index.js')
-    // Go to www.addthis.com/dashboard to customize your tools
+    script(src='plugins/preload/jquery.preload.min.js')
+    script(src='plugins/fastclick/fastclick.js')
     script(type='text/javascript', src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a9fd5757618e3c7')
+    script(src='js/index.js?v=20180318')
 
 
 

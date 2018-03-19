@@ -8,28 +8,73 @@ $(function() {
     },
     header: {
       left: '',
-      center: '',
+      center: 'basic,month',
       right: 'title today prev,next'
     },
+    defaultView: 'basic',
     height: 'auto',
+    navLinks: 'true',
     eventAfterAllRender: function () {
 
       //分類開關
-      function cataf(a,b,c){
+      function cataf(a,b){
         a = localStorage.getItem(b);
         if(a==0){
-          $('.fc-content span:contains('+b+')').parent().parent().addClass('hidden');
+          $('.fc-content span').each(function(){
+            if($(this).text()[1]==b){
+              $(this).parent().parent().addClass('hidden');
+            }
+            if($(this).text()[0]==b){
+              $(this).parent().parent().addClass('grouphidden');
+            }
+          });
         }
       }
-      cataf('str1','#1','#b1');
-      cataf('str2','#2','#b2');
-      cataf('str3','#3','#b3');
-      cataf('str4','#4','#b4');
-      cataf('str5','#5','#b5');
-      cataf('str6','#6','#b6');
-      cataf('str7','#7','#b7');
-      cataf('str8','#8','#b8');
-      cataf('str9','#9','#b9');
+      cataf('cata1','1');
+      cataf('cata2','2');
+      cataf('cata3','3');
+      cataf('cata4','4');
+      cataf('cata5','5');
+      cataf('cata6','6');
+      cataf('cata7','7');
+      cataf('cata8','8');
+      cataf('cata9','9');
+      cataf('muse','u');
+      cataf('aqours','a');
+      cataf('niji','n');
+
+      //多團分類開關
+      u = localStorage.getItem('u');
+      a = localStorage.getItem('a');
+      n = localStorage.getItem('n');
+      if(u==0&&a==0&&n==0){
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='c'){
+            $(this).parent().parent().addClass('grouphidden');
+          }
+        });
+      }
+      if(u==0&&a==0){
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='x'){
+            $(this).parent().parent().addClass('grouphidden');
+          }
+        });
+      }
+      if(u==0&&n==0){
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='y'){
+            $(this).parent().parent().addClass('grouphidden');
+          }
+        });
+      }
+      if(a==0&&n==0){
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='z'){
+            $(this).parent().parent().addClass('grouphidden');
+          }
+        });
+      }
 
       //分類色圖
       var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#3f94e3','#4f49b2','#8f17a7','#944433','#e17f74'];
@@ -54,11 +99,69 @@ $(function() {
         $(this).children().children().toggleClass('wrapone');
       });
 
+      //清除讀取動畫
+      $('#papa').remove();
+
+    },
+    eventDestroy: function () {
+      
     }
   });
 });
 
 $(function(){
+
+  //讀取動畫
+  var tmn = localStorage.getItem("tm");
+  if(tmn==1){
+    var papa = Math.floor(Math.random()*9+1);
+    $('body').prepend('<img id="papa" src="img/upapa_'+papa+'.png">');
+  }else{
+    var papa = Math.floor(Math.random()*9+1);
+    $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png">');
+  }
+
+  //gotop
+  $('#gotop').click(function(){
+    $('html,body').animate({scrollTop: 0}, 500);
+  });
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 300){
+      $('#gotop').fadeIn('fast');
+    }
+    else{
+      $('#gotop').stop().fadeOut('fast');
+    }
+  });
+
+  //fastclick
+  FastClick.attach(document.body);
+
+  //preload
+  $.preload( 'img/bg2.jpg',
+    'img/bg2_m.jpg',
+    'img/bg1.jpg',
+    'img/bg1_m.jpg',
+    'img/apapa_1.png',
+    'img/apapa_2.png',
+    'img/apapa_3.png',
+    'img/apapa_4.png',
+    'img/apapa_5.png',
+    'img/apapa_6.png',
+    'img/apapa_7.png',
+    'img/apapa_8.png',
+    'img/apapa_9.png',
+    'img/upapa_1.png',
+    'img/upapa_2.png',
+    'img/upapa_3.png',
+    'img/upapa_4.png',
+    'img/upapa_5.png',
+    'img/upapa_6.png',
+    'img/upapa_7.png',
+    'img/upapa_8.png',
+    'img/upapa_9.png',
+    'plugins/bootstrap-3.3.1-24/fonts/glyphicons-halflings-regular.woff2'
+  );
 
   //延時加入transition
   setTimeout(function(){
@@ -128,11 +231,20 @@ $(function(){
   });
 
   //切月份時更改表格邊框顏色
-  $('.fc-right').click(function(){
+  $('.fc-right button').click(function(){
     $('#tk img').removeClass('tkon');
     var tmn = localStorage.getItem("tm");
     if(tmn==1){
       $('.fc-unthemed td,.fc-unthemed th,#tm').addClass('tm2bd');
+    }
+    //讀取動畫
+    var tmn = localStorage.getItem("tm");
+    if(tmn==1){
+      var papa = Math.floor(Math.random()*9+1);
+      $('body').prepend('<img id="papa" src="img/upapa_'+papa+'.png">');
+    }else{
+      var papa = Math.floor(Math.random()*9+1);
+      $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png">');
     }
   });
 
@@ -145,25 +257,106 @@ $(function(){
     $(c).click(function(){
       a = localStorage.getItem(b);
       if(a==0){
-        $('.fc-content span:contains('+b+')').parent().parent().removeClass('hidden');
+        $('.fc-content span').each(function(){
+          if($(this).text()[1]==b){
+            $(this).parent().parent().removeClass('hidden');
+          }
+          if($(this).text()[0]==b){
+            $(this).parent().parent().removeClass('grouphidden');
+          }
+        });
         localStorage.setItem(b, '1');
-        $(c).removeClass('grey').children().attr('src','img/cata_0'+b.charAt(1)+'.png');
+        $(c).removeClass('grey').children().attr('src','img/cata_0'+b+'.png');
       }else{
-        $('.fc-content span:contains('+b+')').parent().parent().addClass('hidden');
+        $('.fc-content span').each(function(){
+          if($(this).text()[1]==b){
+            $(this).parent().parent().addClass('hidden');
+          }
+          if($(this).text()[0]==b){
+            $(this).parent().parent().addClass('grouphidden');
+          }
+        });
         localStorage.setItem(b, '0');
         $(c).addClass('grey').children().attr('src','img/cata_close.png');
       }
     });
   }
-  cataf('str1','#1','#b1');
-  cataf('str2','#2','#b2');
-  cataf('str3','#3','#b3');
-  cataf('str4','#4','#b4');
-  cataf('str5','#5','#b5');
-  cataf('str6','#6','#b6');
-  cataf('str7','#7','#b7');
-  cataf('str8','#8','#b8');
-  cataf('str9','#9','#b9');
+  cataf('cata1','1','#b1');
+  cataf('cata2','2','#b2');
+  cataf('cata3','3','#b3');
+  cataf('cata4','4','#b4');
+  cataf('cata5','5','#b5');
+  cataf('cata6','6','#b6');
+  cataf('cata7','7','#b7');
+  cataf('cata8','8','#b8');
+  cataf('cata9','9','#b9');
+  cataf('muse','u','#muse');
+  cataf('aqours','a','#aqours');
+  cataf('niji','n','#niji');
+
+  //多團分類開關
+  function xcataf(c){
+    $(c).click(function(){
+      u = localStorage.getItem('u');
+      a = localStorage.getItem('a');
+      n = localStorage.getItem('n');
+      if(u==0&&a==0&&n==0){
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='c'){
+            $(this).parent().parent().addClass('grouphidden');
+          }
+        });
+      }else{
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='c'){
+            $(this).parent().parent().removeClass('grouphidden');
+          }
+        });
+      }
+      if(u==0&&a==0){
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='x'){
+            $(this).parent().parent().addClass('grouphidden');
+          }
+        });
+      }else{
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='x'){
+            $(this).parent().parent().removeClass('grouphidden');
+          }
+        });
+      }
+      if(u==0&&n==0){
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='y'){
+            $(this).parent().parent().addClass('grouphidden');
+          }
+        });
+      }else{
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='y'){
+            $(this).parent().parent().removeClass('grouphidden');
+          }
+        });
+      }
+      if(a==0&&n==0){
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='z'){
+            $(this).parent().parent().addClass('grouphidden');
+          }
+        });
+      }else{
+        $('.fc-content span').each(function(){
+          if($(this).text()[0]=='z'){
+            $(this).parent().parent().removeClass('grouphidden');
+          }
+        });
+      }
+    });
+  }
+  xcataf('#muse');
+  xcataf('#aqours');
+  xcataf('#niji');
 
   //管理人與聲明視窗
   $('#kanri').click(function(){
@@ -182,7 +375,3 @@ $(function(){
   });
 
 });
-
-
-
-

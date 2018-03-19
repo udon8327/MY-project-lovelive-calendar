@@ -6,6 +6,7 @@ $sub: #F58412
 $text: #34495E
 $aqours: #00a1e9
 $muse: #e5007f
+$niji: #f09700
 $c1: #cf2313
 $c2: #ee5a2a
 $c3: #efc337
@@ -16,6 +17,31 @@ $c7: #8f17a7
 $c8: #944433
 $c9: #e17f74
 $c0: #616161
+
+//gototop
+#gotop
+  display: none
+  position: fixed
+  right: 10px
+  bottom: 70px
+  padding: 10px 14px
+  font-size: 22px
+  background: rgba(0, 0, 0, 0)
+  color: white
+  cursor: pointer
+  z-index: 500
+  border-radius: 50px
+  @media screen and (min-width: 768px) and (max-width: 991px)
+    right: 4px
+    bottom: 56px
+  @media (max-width:767px)
+    right: 4px
+    bottom: 46px
+  &:hover
+    i
+      transform: translateY(-10px)
+      transition: .4s
+    background: rgba(0, 0, 0, 0)
 
 //body
 body
@@ -28,6 +54,34 @@ body
     background-size: 100%
     transition: none
 
+//mente
+#mente
+  background: url('../img/mente.jpg') no-repeat top center
+  width: 100%
+  height: 100%
+  position: fixed
+  z-index: 100
+
+//讀取動畫
+#papa
+  z-index: 10
+  position: fixed
+  top: 47.5%
+  left: 47.5%
+  @media screen and (min-width: 768px) and (max-width: 991px)
+    top: 50%
+    left: 44%
+  @media (max-width:767px)
+    top: 47.5%
+    left: 39%
+  width: 100px
+  animation: papa 0.6s infinite linear
+  @keyframes papa
+    0%
+      transform: rotate(0deg)
+    100%
+      transform: rotate(360deg)
+
 //header
 @media (max-width:991px)
   .fc-left
@@ -37,19 +91,20 @@ header
     width: 100% !important
   //logo
   .logo
-    margin-top: 2px
+    margin-top: 3px 0
   //主題鈕
   #tm
+    vertical-align: top
     padding: 0px
     background-color: #fff
     border: 3px solid $aqours
     border-radius: 50px
     cursor: pointer
-    margin: 0px 36px 0 10px
+    margin: 7px 20px 0px 10px
     display: inline-block
     transition: all 0.2s ease
     @media (max-width: 359px)
-      margin: 0
+      margin: 7px 0 0 0
     &:hover
       transform: scale(1.1)
       @media (max-width:991px)
@@ -58,26 +113,36 @@ header
       width: 40px
   //分類鈕
   .cata
+    font-size: 14px
     display: inline-block
-    padding: 16px 0
+    padding: 8px 0
     @media (max-width:991px)
       display: none
     @media (max-width:991px)
       padding: 16px 0 0 0
     .catabtn
       display: inline-block
-      padding: 6px
+      padding: 2px 8px
       color: #fff
-      border-radius: 50px
+      border-radius: 10px
       cursor: pointer
       transition: transform 0.2s ease
       &:hover
         transform: translateY(-3px)
       @media (max-width:991px)
         margin-top: 4px
+        &:hover
+          transform: translateY(0px)
       img
         width: 20px
-        margin: -3px 3px 0 0
+        margin: -2px 1px 0 0
+    #muse
+      background-color: $muse
+    #aqours
+      background-color: $aqours
+    #niji
+      background-color: $niji
+      margin-right: 20px
     #b1
       background-color: $c1
     #b2
@@ -104,12 +169,12 @@ header
     border-radius: 50px
     background-color: $aqours
     margin: 0 0 0 7px
-    transition: all 0.5s ease
+    transition: all 0.2s ease
     @media (min-width:991px)
       display: none
     @media (max-width:991px)
-      margin: 8px 0 0 0px
-      padding: 12px
+      margin: 7px 0 0 0px
+      padding: 13px
     &:hover
       transform: scale(1.1)
       @media (max-width:991px)
@@ -119,16 +184,17 @@ header
       height: 18px
   //展開鈕
   #tk
+    vertical-align: top
     display: inline-block
     cursor: pointer
-    padding: 10px
+    padding: 13px
     border-radius: 50px
     background-color: $aqours
-    margin: 0 0 0 7px
+    margin: 7px 0 0 20px
     transition: all 0.2s ease
     @media (max-width:991px)
-      margin: 8px 8px 0 8px
-      padding: 12px
+      margin: 7px 8px 0 8px
+      padding: 13px
     &:hover
       transform: scale(1.1)
       @media (max-width:991px)
@@ -143,7 +209,7 @@ header
   transform: rotateX(0deg) !important
 
 .fc-right
-  margin-top: 16px !important
+  margin-top: 15px !important
   @media (max-width:991px)
     width: 100%
     float: left !important
@@ -195,11 +261,15 @@ main
     background-color: rgba(255, 255, 255, 0) !important
   .fc-body
     .fc-row
+      height: auto !important
       min-height: 120px !important
       @media (max-width: 768px)
         min-height: 100px !important
   .fc-bg td.fc-past
     background-color: rgba(0,0,0,0.06)
+  .fc-past
+    span
+      text-decoration: line-through
   .fc-header-toolbar
     margin: 0 !important
   //自動調整事件內容高度
@@ -244,6 +314,7 @@ main
       top: -20px
       left: 15px
       z-index: 3
+      pointer-events: none
       animation: hane 5s infinite
       @keyframes hane
         0%
@@ -268,15 +339,10 @@ main
   word-break: break-all
 .hidden
   display: none
+.grouphidden
+  display: none
 .visible
   display: inline-block !important
-.visibleanime
-  animation: visibleanime 1s
-  @keyframes visibleanime
-    0%
-      bottom: 
-    100%
-      display: inline-block !important
 .grey
   background-color: #aaa !important
 .tm2cl
@@ -286,7 +352,7 @@ main
 .tm2bg
   background: url(../img/bg2.jpg) repeat-x top center #91d746 !important
   @media (max-width:991px)
-    background: url(../img/bg2_m.jpg) no-repeat top center #83d247 !important
+    background: url(../img/bg2_m.jpg) no-repeat top center #84d146 !important
     background-size: 100% auto !important
 .tm2bc
   background-color: $muse !important
