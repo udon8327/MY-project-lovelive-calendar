@@ -102,12 +102,7 @@ $(function() {
       //清除讀取動畫
       $('#papa').remove();
 
-      //單日視圖高度
-      var wh = $(window).height()-198;
-      if($(window).width()>1200){
-        var wh = $(window).height()-130;
-      }
-      $('tbody.fc-body > tr > td > div').css('min-height',wh+'px');
+
 
       //分類色圖
       var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#8f17a7','#944433','#e17f74'];
@@ -115,9 +110,9 @@ $(function() {
         var i = $(this).text()[1];
         if(i!=='7'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png">');}
         var g = $(this).text()[0];
-        if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='y'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_05.png">');}
-        if(g=='u'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_09.png">');}
-        if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_02.png">');}
+        if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='y'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_07a.png">');}
+        if(g=='u'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_07u.png">');}
+        if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_07n.png">');}
       });
 
     }
@@ -266,6 +261,13 @@ $(function(){
       var papa = Math.floor(Math.random()*9+1);
       $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png">');
     }
+    //調整單日視圖高度
+    var wh = $(window).height()-198;
+    if($(window).width()>1200){
+      var wh = $(window).height()-130;
+    }
+    $('tbody.fc-body > tr > td > div').css('min-height',wh+'px');
+    $('#calendar > div.fc-view-container .fc-bg td').css('height',wh+'px');
   });
 
   //分類開關
@@ -307,12 +309,49 @@ $(function(){
   cataf('cata4','4','#b4');
   cataf('cata5','5','#b5');
   cataf('cata6','6','#b6');
-  cataf('cata7','7','#b7');
+  //cataf('cata7','7','#b7');
   cataf('cata8','8','#b8');
   cataf('cata9','9','#b9');
   cataf('muse','u','#muse');
   cataf('aqours','a','#aqours');
   cataf('niji','n','#niji');
+
+  //聲優類專用分類開關
+  function aunf(a,b,c){
+    a = localStorage.getItem(b);
+    if(a==0){
+      $(c).removeClass('aun').children().attr('src','img/cata_close.png');
+    }else{
+      $(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png');
+    }
+    $(c).click(function(){
+      a = localStorage.getItem(b);
+      if(a==0){
+        $('.fc-content span').each(function(){
+          if($(this).text()[1]==b){
+            $(this).parent().parent().removeClass('hidden');
+          }
+          if($(this).text()[0]==b){
+            $(this).parent().parent().removeClass('grouphidden');
+          }
+        });
+        localStorage.setItem(b, '1');
+        $(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png');
+      }else{
+        $('.fc-content span').each(function(){
+          if($(this).text()[1]==b){
+            $(this).parent().parent().addClass('hidden');
+          }
+          if($(this).text()[0]==b){
+            $(this).parent().parent().addClass('grouphidden');
+          }
+        });
+        localStorage.setItem(b, '0');
+        $(c).removeClass('aun').children().attr('src','img/cata_close.png');
+      }
+    });
+  }
+  aunf('cata7','7','#b7');
 
   //多團分類開關
   function xcataf(c){

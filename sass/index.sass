@@ -164,16 +164,11 @@ header
     #b4
       background-color: $c4
     #b5
-      background-color: $c5
+      background-color: $c7
     #b6
       background-color: $c6
     #b7
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5007f+33,00a1e9+33,00a1e9+33,00a1e9+66,f09700+66 */
-      background: rgb(229,0,127); /* Old browsers */
-      background: -moz-linear-gradient(left, rgba(229,0,127,1) 33%, rgba(0,161,233,1) 33%, rgba(0,161,233,1) 33%, rgba(0,161,233,1) 66%, rgba(240,151,0,1) 66%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(left, rgba(229,0,127,1) 33%,rgba(0,161,233,1) 33%,rgba(0,161,233,1) 33%,rgba(0,161,233,1) 66%,rgba(240,151,0,1) 66%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to right, rgba(229,0,127,1) 33%,rgba(0,161,233,1) 33%,rgba(0,161,233,1) 33%,rgba(0,161,233,1) 66%,rgba(240,151,0,1) 66%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5007f', endColorstr='#f09700',GradientType=1 ); /* IE6-9 */
+      background-color: #aaa
     #b8
       background-color: $c8
     #b9
@@ -267,13 +262,13 @@ main
   .fc-sun,.fc-sat
     background-color: rgba(255, 0, 0, 0.2) !important
   .fc-today
-    background-color: rgba(0, 161, 233, 0.6) !important
+    background-color: rgba(0, 161, 233, 0.5) !important
     span
-      color: #fff
+      color: #fff !important
   .tm2todaybc
-    background-color: rgba(228, 0, 127, 0.6) !important
+    background-color: rgba(228, 0, 127, 0.5) !important
     span
-      color: #fff
+      color: #fff !important
   .fc-other-month
     background-color: rgba(255, 255, 255, 0.2) !important
     td
@@ -295,16 +290,27 @@ main
       text-decoration: line-through
   .fc-header-toolbar
     margin: 0 !important
+  .fc-today
+    a.fc-day-number
+      color: #fff
+  a.fc-day-number
+    color: #333
+
   //自動調整事件內容高度
   #calendar > div.fc-view-container > div > table > tbody > tr > td > div > div > div
     min-height: 144px !important
     @media (max-width:767px)
       min-height: 100px !important
+
   //單日視圖
   tbody.fc-body > tr > td > div
     min-height: 430px
   .fc-button-group
     margin: 0 0px 6px 10px !important
+
+  //單日視圖背景顏色
+  #calendar > div.fc-view-container > div.fc-month-view  .fc-bg td
+    height: 0 !important
 
   //活動大小、內容超出
   .fc-content
@@ -334,9 +340,12 @@ main
     display: none
 
   //今天羽毛
+  .fc-month-view #today
+    display: inline-block !important
   td.fc-today
     position: relative
     #today
+      display: none
       width: 50px
       position: absolute
       top: -20px
@@ -458,3 +467,11 @@ footer
     padding: 10px
     #cc
       padding: 6px 0 0px 0
+
+.aun
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5007f+33,00a1e9+33,00a1e9+33,00a1e9+66,f09700+66 */
+  background: rgb(229,0,127) /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(229,0,127,1) 33%, rgba(0,161,233,1) 33%, rgba(0,161,233,1) 33%, rgba(0,161,233,1) 66%, rgba(240,151,0,1) 66%) /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(229,0,127,1) 33%,rgba(0,161,233,1) 33%,rgba(0,161,233,1) 33%,rgba(0,161,233,1) 66%,rgba(240,151,0,1) 66%) /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(229,0,127,1) 33%,rgba(0,161,233,1) 33%,rgba(0,161,233,1) 33%,rgba(0,161,233,1) 66%,rgba(240,151,0,1) 66%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5007f', endColorstr='#f09700',GradientType=1 ) /* IE6-9 */

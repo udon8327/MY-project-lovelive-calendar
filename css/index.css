@@ -187,23 +187,11 @@ header .cata {
   header .cata #b4 {
     background-color: #158046; }
   header .cata #b5 {
-    background-color: #3f94e3; }
+    background-color: #8f17a7; }
   header .cata #b6 {
     background-color: #4f49b2; }
   header .cata #b7 {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5007f+33,00a1e9+33,00a1e9+33,00a1e9+66,f09700+66 */
-    background: #e5007f;
-    /* Old browsers */
-    background: -moz-linear-gradient(left, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: -webkit-gradient(linear, left top, right top, color-stop(33%, #e5007f), color-stop(33%, #00a1e9), color-stop(33%, #00a1e9), color-stop(66%, #00a1e9), color-stop(66%, #f09700));
-    background: -o-linear-gradient(left, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
-    background: linear-gradient(to right, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5007f', endColorstr='#f09700',GradientType=1 );
-    /* IE6-9 */ }
+    background-color: #aaa; }
   header .cata #b8 {
     background-color: #944433; }
   header .cata #b9 {
@@ -327,14 +315,14 @@ main .fc-sun, main .fc-sat {
   background-color: rgba(255, 0, 0, 0.2) !important; }
 
 main .fc-today {
-  background-color: rgba(0, 161, 233, 0.6) !important; }
+  background-color: rgba(0, 161, 233, 0.5) !important; }
   main .fc-today span {
-    color: #fff; }
+    color: #fff !important; }
 
 main .tm2todaybc {
-  background-color: rgba(228, 0, 127, 0.6) !important; }
+  background-color: rgba(228, 0, 127, 0.5) !important; }
   main .tm2todaybc span {
-    color: #fff; }
+    color: #fff !important; }
 
 main .fc-other-month {
   background-color: rgba(255, 255, 255, 0.2) !important; }
@@ -363,6 +351,12 @@ main .fc-past a {
 main .fc-header-toolbar {
   margin: 0 !important; }
 
+main .fc-today a.fc-day-number {
+  color: #fff; }
+
+main a.fc-day-number {
+  color: #333; }
+
 main #calendar > div.fc-view-container > div > table > tbody > tr > td > div > div > div {
   min-height: 144px !important; }
   @media (max-width: 767px) {
@@ -374,6 +368,9 @@ main tbody.fc-body > tr > td > div {
 
 main .fc-button-group {
   margin: 0 0px 6px 10px !important; }
+
+main #calendar > div.fc-view-container > div.fc-month-view .fc-bg td {
+  height: 0 !important; }
 
 main .fc-content span {
   font-size: 14px;
@@ -398,9 +395,13 @@ main .fc-event-container img {
 main .fc-time {
   display: none; }
 
+main .fc-month-view #today {
+  display: inline-block !important; }
+
 main td.fc-today {
   position: relative; }
   main td.fc-today #today {
+    display: none;
     width: 50px;
     position: absolute;
     top: -20px;
@@ -588,3 +589,13 @@ footer .statement {
   padding: 10px; }
   footer .statement #cc {
     padding: 6px 0 0px 0; }
+
+.aun {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5007f+33,00a1e9+33,00a1e9+33,00a1e9+66,f09700+66 */
+  background: #e5007f;
+  background: -moz-linear-gradient(left, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
+  background: -webkit-linear-gradient(left, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(33%, #e5007f), color-stop(33%, #00a1e9), color-stop(33%, #00a1e9), color-stop(66%, #00a1e9), color-stop(66%, #f09700));
+  background: -o-linear-gradient(left, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
+  background: linear-gradient(to right, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5007f', endColorstr='#f09700',GradientType=1 ); }
