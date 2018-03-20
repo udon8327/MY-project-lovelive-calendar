@@ -13,10 +13,10 @@ $(function() {
     },
     views: {
       month: {
-      titleFormat: 'YYYY MM'
+      titleFormat: 'YYYY.MM'
       },
       basic: {
-      titleFormat: 'YY MM/DD'
+      titleFormat: 'YY.MM.DD'
       }
     },
     height: 'auto',
@@ -83,13 +83,6 @@ $(function() {
         });
       }
 
-      //分類色圖
-      var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#3f94e3','#4f49b2','#8f17a7','#944433','#e17f74'];
-      $('span.fc-title').each(function(){
-        var i = $(this).text()[1];
-        $(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png">');
-      });
-
       //今天背景色,羽毛切換
       var tmn = localStorage.getItem("tm");
       $('td.fc-today').prepend('<img id="today" src="img/hane_01.png">');
@@ -110,11 +103,22 @@ $(function() {
       $('#papa').remove();
 
       //單日視圖高度
-      var wh = $(window).height()-202;
+      var wh = $(window).height()-198;
       if($(window).width()>1200){
         var wh = $(window).height()-130;
       }
-      $('tbody.fc-body > tr > td > div').css('min-height',wh+'px')
+      $('tbody.fc-body > tr > td > div').css('min-height',wh+'px');
+
+      //分類色圖
+      var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#8f17a7','#944433','#e17f74'];
+      $('span.fc-title').each(function(){
+        var i = $(this).text()[1];
+        if(i!=='7'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png">');}
+        var g = $(this).text()[0];
+        if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='y'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_05.png">');}
+        if(g=='u'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_09.png">');}
+        if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_02.png">');}
+      });
 
     }
   });

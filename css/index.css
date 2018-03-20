@@ -191,7 +191,19 @@ header .cata {
   header .cata #b6 {
     background-color: #4f49b2; }
   header .cata #b7 {
-    background-color: #8f17a7; }
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5007f+33,00a1e9+33,00a1e9+33,00a1e9+66,f09700+66 */
+    background: #e5007f;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: -webkit-gradient(linear, left top, right top, color-stop(33%, #e5007f), color-stop(33%, #00a1e9), color-stop(33%, #00a1e9), color-stop(66%, #00a1e9), color-stop(66%, #f09700));
+    background: -o-linear-gradient(left, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
+    background: linear-gradient(to right, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5007f', endColorstr='#f09700',GradientType=1 );
+    /* IE6-9 */ }
   header .cata #b8 {
     background-color: #944433; }
   header .cata #b9 {
