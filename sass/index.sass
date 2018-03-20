@@ -91,7 +91,19 @@ header
     width: 100% !important
   //logo
   .logo
-    margin-top: 3px 0
+    width: 140px
+    height: 50px
+    background: url('../img/logo.png') no-repeat
+    margin: 2px 0 0 0
+    background-size: contain
+    overflow: hidden
+    text-indent: 100%
+    white-space: nowrap
+    float: left
+    a
+      display: block
+      width: 100%
+      height: 100%
   //主題鈕
   #tm
     vertical-align: top
@@ -100,7 +112,7 @@ header
     border: 3px solid $aqours
     border-radius: 50px
     cursor: pointer
-    margin: 7px 20px 0px 10px
+    margin: 7px 10px 0px 10px
     display: inline-block
     transition: all 0.2s ease
     @media (max-width: 359px)
@@ -142,7 +154,7 @@ header
       background-color: $aqours
     #niji
       background-color: $niji
-      margin-right: 20px
+      margin-right: 10px
     #b1
       background-color: $c1
     #b2
@@ -190,7 +202,7 @@ header
     padding: 13px
     border-radius: 50px
     background-color: $aqours
-    margin: 7px 0 0 20px
+    margin: 7px 0 0 10px
     transition: all 0.2s ease
     @media (max-width:991px)
       margin: 7px 8px 0 8px
@@ -220,6 +232,10 @@ header
       margin-right: 10px
     h2
       margin-left: 10px !important
+      @media (max-width:359px)
+        font-size: 26px
+.fc-next-button.fc-button > span,.fc-prev-button.fc-button > span
+  margin: 0
 
 //main
 main
@@ -270,6 +286,8 @@ main
   .fc-past
     span
       text-decoration: line-through
+    a
+      text-decoration: line-through
   .fc-header-toolbar
     margin: 0 !important
   //自動調整事件內容高度
@@ -277,6 +295,11 @@ main
     min-height: 144px !important
     @media (max-width:767px)
       min-height: 100px !important
+  //單日視圖
+  tbody.fc-body > tr > td > div
+    min-height: 430px
+  .fc-button-group
+    margin: 0 0px 6px 10px !important
 
   //活動大小、內容超出
   .fc-content

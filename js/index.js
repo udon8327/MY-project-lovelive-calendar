@@ -8,10 +8,17 @@ $(function() {
     },
     header: {
       left: '',
-      center: 'basic,month',
-      right: 'title today prev,next'
+      center: '',
+      right: 'title today basic,month prev,next'
     },
-    defaultView: 'basic',
+    views: {
+      month: {
+      titleFormat: 'YYYY MM'
+      },
+      basic: {
+      titleFormat: 'YY MM/DD'
+      }
+    },
     height: 'auto',
     navLinks: 'true',
     eventAfterAllRender: function () {
@@ -102,9 +109,13 @@ $(function() {
       //清除讀取動畫
       $('#papa').remove();
 
-    },
-    eventDestroy: function () {
-      
+      //單日視圖高度
+      var wh = $(window).height()-202;
+      if($(window).width()>1200){
+        var wh = $(window).height()-130;
+      }
+      $('tbody.fc-body > tr > td > div').css('min-height',wh+'px')
+
     }
   });
 });
@@ -173,8 +184,10 @@ $(function(){
     $('.fc-content span').removeClass('wrapone').toggleClass('wrap');
   });
 
-  //today改今天
+  //中文化
   $('.fc-today-button').text('今天');
+  $('.fc-basic-button').text('日');
+  $('.fc-month-button').text('月');
 
   //過濾鈕
   if($(window).width()<991){
@@ -238,6 +251,9 @@ $(function(){
       $('.fc-unthemed td,.fc-unthemed th,#tm').addClass('tm2bd');
     }
     //讀取動畫
+    $('#papa').remove();
+    $('.fc-content-skeleton>table>tbody>tr>td').remove();
+    $('#calendar').fullCalendar('refetchEvents');
     var tmn = localStorage.getItem("tm");
     if(tmn==1){
       var papa = Math.floor(Math.random()*9+1);

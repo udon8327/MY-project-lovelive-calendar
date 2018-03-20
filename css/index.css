@@ -95,7 +95,19 @@ body {
     width: 100% !important; } }
 
 header .logo {
-  margin-top: 3px 0; }
+  width: 140px;
+  height: 50px;
+  background: url("../img/logo.png") no-repeat;
+  margin: 2px 0 0 0;
+  background-size: contain;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  float: left; }
+  header .logo a {
+    display: block;
+    width: 100%;
+    height: 100%; }
 
 header #tm {
   vertical-align: top;
@@ -104,7 +116,7 @@ header #tm {
   border: 3px solid #00a1e9;
   border-radius: 50px;
   cursor: pointer;
-  margin: 7px 20px 0px 10px;
+  margin: 7px 10px 0px 10px;
   display: inline-block;
   -webkit-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
@@ -165,7 +177,7 @@ header .cata {
     background-color: #00a1e9; }
   header .cata #niji {
     background-color: #f09700;
-    margin-right: 20px; }
+    margin-right: 10px; }
   header .cata #b1 {
     background-color: #cf2313; }
   header .cata #b2 {
@@ -222,7 +234,7 @@ header #tk {
   padding: 13px;
   border-radius: 50px;
   background-color: #00a1e9;
-  margin: 7px 0 0 20px;
+  margin: 7px 0 0 10px;
   -webkit-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease; }
@@ -265,6 +277,12 @@ header #tk {
         margin-right: 10px; }
       .fc-right h2 {
         margin-left: 10px !important; } }
+    @media (max-width: 991px) and (max-width: 359px) {
+      .fc-right h2 {
+        font-size: 26px; } }
+
+.fc-next-button.fc-button > span, .fc-prev-button.fc-button > span {
+  margin: 0; }
 
 main h2 {
   color: #00a1e9 !important;
@@ -327,6 +345,9 @@ main .fc-bg td.fc-past {
 main .fc-past span {
   text-decoration: line-through; }
 
+main .fc-past a {
+  text-decoration: line-through; }
+
 main .fc-header-toolbar {
   margin: 0 !important; }
 
@@ -335,6 +356,12 @@ main #calendar > div.fc-view-container > div > table > tbody > tr > td > div > d
   @media (max-width: 767px) {
     main #calendar > div.fc-view-container > div > table > tbody > tr > td > div > div > div {
       min-height: 100px !important; } }
+
+main tbody.fc-body > tr > td > div {
+  min-height: 430px; }
+
+main .fc-button-group {
+  margin: 0 0px 6px 10px !important; }
 
 main .fc-content span {
   font-size: 14px;
