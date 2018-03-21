@@ -85,9 +85,9 @@ $(function() {
 
       //今天背景色,羽毛切換
       var tmn = localStorage.getItem("tm");
-      $('td.fc-today').prepend('<img id="today" src="img/hane_01.png">');
+      $('td.fc-today').prepend('<img id="today" src="img/hane_01.png?v=2">');
       if(tmn==1){
-        $('img#today').attr('src','img/hane_02.png');
+        $('img#today').attr('src','img/hane_02.png?v=2');
         $('main .fc-today').addClass('tm2todaybc');
       }
 
@@ -108,12 +108,18 @@ $(function() {
       var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#8f17a7','#944433','#e17f74'];
       $('span.fc-title').each(function(){
         var i = $(this).text()[1];
-        if(i!=='7'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png">');}
+        if(i!=='7'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png?v=2">');}
         var g = $(this).text()[0];
-        if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='y'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_07a.png">');}
-        if(g=='u'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_07u.png">');}
-        if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_07n.png">');}
+        if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='y'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_07a.png?v=2">');}
+        if(g=='u'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_07u.png?v=2">');}
+        if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_07n.png?v=2">');}
       });
+
+      //無事件花丸
+      $('#mu').remove();
+      if($('div.fc-content-skeleton td').text()==''){
+        $('.fc-bg').before('<img id="mu" src="img/mu.png">');
+      }
 
     }
   });
@@ -125,10 +131,10 @@ $(function(){
   var tmn = localStorage.getItem("tm");
   if(tmn==1){
     var papa = Math.floor(Math.random()*9+1);
-    $('body').prepend('<img id="papa" src="img/upapa_'+papa+'.png">');
+    $('body').prepend('<img id="papa" src="img/upapa_'+papa+'.png?v=2">');
   }else{
     var papa = Math.floor(Math.random()*9+1);
-    $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png">');
+    $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png?v=2">');
   }
 
   //gotop
@@ -148,28 +154,28 @@ $(function(){
   FastClick.attach(document.body);
 
   //preload
-  $.preload( 'img/bg2.jpg',
-    'img/bg2_m.jpg',
-    'img/bg1.jpg',
-    'img/bg1_m.jpg',
-    'img/apapa_1.png',
-    'img/apapa_2.png',
-    'img/apapa_3.png',
-    'img/apapa_4.png',
-    'img/apapa_5.png',
-    'img/apapa_6.png',
-    'img/apapa_7.png',
-    'img/apapa_8.png',
-    'img/apapa_9.png',
-    'img/upapa_1.png',
-    'img/upapa_2.png',
-    'img/upapa_3.png',
-    'img/upapa_4.png',
-    'img/upapa_5.png',
-    'img/upapa_6.png',
-    'img/upapa_7.png',
-    'img/upapa_8.png',
-    'img/upapa_9.png',
+  $.preload( 'img/bg2.jpg?v=2',
+    'img/bg2_m.jpg?v=2',
+    'img/bg1.jpg?v=2',
+    'img/bg1_m.jpg?v=2',
+    'img/apapa_1.png?v=2',
+    'img/apapa_2.png?v=2',
+    'img/apapa_3.png?v=2',
+    'img/apapa_4.png?v=2',
+    'img/apapa_5.png?v=2',
+    'img/apapa_6.png?v=2',
+    'img/apapa_7.png?v=2',
+    'img/apapa_8.png?v=2',
+    'img/apapa_9.png?v=2',
+    'img/upapa_1.png?v=2',
+    'img/upapa_2.png?v=2',
+    'img/upapa_3.png?v=2',
+    'img/upapa_4.png?v=2',
+    'img/upapa_5.png?v=2',
+    'img/upapa_6.png?v=2',
+    'img/upapa_7.png?v=2',
+    'img/upapa_8.png?v=2',
+    'img/upapa_9.png?v=2',
     'plugins/bootstrap-3.3.1-24/fonts/glyphicons-halflings-regular.woff2'
   );
 
@@ -208,7 +214,7 @@ $(function(){
   //主題切換
   var tmn = localStorage.getItem("tm");
   if(tmn==1){
-    $('#tm img').attr('src','img/theme2.png');
+    $('#tm img').attr('src','img/theme2.png?v=2');
     $('h2').addClass('tm2cl');
     $('body').addClass('tm2bg');
     $('.fc-unthemed td,.fc-unthemed th,#tm').addClass('tm2bd');
@@ -222,21 +228,21 @@ $(function(){
     },200);
     var tmn = localStorage.getItem("tm");
     if(tmn==0){
-      $('#tm img').attr('src','img/theme2.png');
+      $('#tm img').attr('src','img/theme2.png?v=2');
       $('h2').addClass('tm2cl');
       $('body').addClass('tm2bg');
       $('.fc-unthemed td,.fc-unthemed th,#tm,fc-right').addClass('tm2bd');
       $('#tk,#cm,main td.fc-today').addClass('tm2bc');
-      $('img#today').attr('src','img/hane_02.png');
+      $('img#today').attr('src','img/hane_02.png?v=2');
       $('main .fc-today').addClass('tm2todaybc');
       localStorage.setItem("tm", '1');
     }else{
-      $('#tm img').attr('src','img/theme1.png');
+      $('#tm img').attr('src','img/theme1.png?v=2');
       $('h2').removeClass('tm2cl');
       $('body').removeClass('tm2bg');
       $('.fc-unthemed td,.fc-unthemed th,#tm,fc-right').removeClass('tm2bd');
       $('#tk,#cm,main td.fc-today').removeClass('tm2bc');
-      $('img#today').attr('src','img/hane_01.png');
+      $('img#today').attr('src','img/hane_01.png?v=2');
       $('main .fc-today').removeClass('tm2todaybc');
       localStorage.setItem("tm", '0');
     }
@@ -256,10 +262,10 @@ $(function(){
     var tmn = localStorage.getItem("tm");
     if(tmn==1){
       var papa = Math.floor(Math.random()*9+1);
-      $('body').prepend('<img id="papa" src="img/upapa_'+papa+'.png">');
+      $('body').prepend('<img id="papa" src="img/upapa_'+papa+'.png?v=2">');
     }else{
       var papa = Math.floor(Math.random()*9+1);
-      $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png">');
+      $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png?v=2">');
     }
     //調整單日視圖高度
     var wh = $(window).height()-198;
@@ -268,13 +274,15 @@ $(function(){
     }
     $('tbody.fc-body > tr > td > div').css('min-height',wh+'px');
     $('#calendar > div.fc-view-container .fc-bg td').css('height',wh+'px');
+    //無事件花丸
+    $('#mu').remove();
   });
 
   //分類開關
   function cataf(a,b,c){
     a = localStorage.getItem(b);
     if(a==0){
-      $(c).addClass('grey').children().attr('src','img/cata_close.png');
+      $(c).addClass('grey').children().attr('src','img/cata_close.png?v=2');
     }
     $(c).click(function(){
       a = localStorage.getItem(b);
@@ -288,7 +296,7 @@ $(function(){
           }
         });
         localStorage.setItem(b, '1');
-        $(c).removeClass('grey').children().attr('src','img/cata_0'+b+'.png');
+        $(c).removeClass('grey').children().attr('src','img/cata_0'+b+'.png?v=2');
       }else{
         $('.fc-content span').each(function(){
           if($(this).text()[1]==b){
@@ -299,7 +307,7 @@ $(function(){
           }
         });
         localStorage.setItem(b, '0');
-        $(c).addClass('grey').children().attr('src','img/cata_close.png');
+        $(c).addClass('grey').children().attr('src','img/cata_close.png?v=2');
       }
     });
   }
@@ -320,9 +328,9 @@ $(function(){
   function aunf(a,b,c){
     a = localStorage.getItem(b);
     if(a==0){
-      $(c).removeClass('aun').children().attr('src','img/cata_close.png');
+      $(c).removeClass('aun').children().attr('src','img/cata_close.png?v=2');
     }else{
-      $(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png');
+      $(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png?v=2');
     }
     $(c).click(function(){
       a = localStorage.getItem(b);
@@ -336,7 +344,7 @@ $(function(){
           }
         });
         localStorage.setItem(b, '1');
-        $(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png');
+        $(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png?v=2');
       }else{
         $('.fc-content span').each(function(){
           if($(this).text()[1]==b){
@@ -347,7 +355,7 @@ $(function(){
           }
         });
         localStorage.setItem(b, '0');
-        $(c).removeClass('aun').children().attr('src','img/cata_close.png');
+        $(c).removeClass('aun').children().attr('src','img/cata_close.png?v=2');
       }
     });
   }

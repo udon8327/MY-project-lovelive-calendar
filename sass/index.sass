@@ -296,6 +296,15 @@ main
   a.fc-day-number
     color: #333
 
+  //無事件花丸
+  #mu
+    z-index: 100
+    position: absolute
+    left: 50%
+    transform: translatex(-50%)
+    @media (max-width:767px)
+      width: 50%
+
   //自動調整事件內容高度
   #calendar > div.fc-view-container > div > table > tbody > tr > td > div > div > div
     min-height: 144px !important

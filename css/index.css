@@ -357,6 +357,17 @@ main .fc-today a.fc-day-number {
 main a.fc-day-number {
   color: #333; }
 
+main #mu {
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+  -ms-transform: translatex(-50%);
+  transform: translatex(-50%); }
+  @media (max-width: 767px) {
+    main #mu {
+      width: 50%; } }
+
 main #calendar > div.fc-view-container > div > table > tbody > tr > td > div > div > div {
   min-height: 144px !important; }
   @media (max-width: 767px) {

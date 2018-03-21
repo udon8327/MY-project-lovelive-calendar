@@ -13,13 +13,13 @@ html(lang='zh-Hant-TW')
     meta(property='og:url', content='http://www.udonsite.com/lovelivecalendar/')
     meta(property='og:image:width', content='1200')
     meta(property='og:image:height', content='630')
-    meta(property='og:image', content='http://www.udonsite.com/lovelivecalendar/img/og.jpg')
+    meta(property='og:image', content='http://www.udonsite.com/lovelivecalendar/img/og2.jpg')
     meta(property='og:description', content='愛肝行事曆')
     link(rel='shortcut icon' href='img/ico.ico')
     title LoveLive! Calendar!!
     link(rel='stylesheet' href='plugins/bootstrap-3.3.1-24/css/bootstrap.min.css')
     link(rel='stylesheet', href='plugins/fullcalendar/fullcalendar.min.css')
-    link(rel='stylesheet' href='css/index.css?v=20180320')
+    link(rel='stylesheet' href='css/index.css?v=2')
     | <!--[if lt IE 9]>
     |   <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     |   <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -43,60 +43,60 @@ html(lang='zh-Hant-TW')
       h1.logo
         a(href='http://www.udonsite.com/lovelivecalendar/') Lovelive! Calendar!!
       .theme#tm
-        img(src='img/theme1.png',alt='')
+        img(src='img/theme1.png?v=2',alt='')
       .cata_m#cm
-        img(src='img/fliter.png',alt='')
+        img(src='img/fliter.png?v=2',alt='')
       .cata.text-center
         .catabtn#muse
-          img.g1(src='img/cata_0u.png',alt='')
+          img.g1(src='img/cata_0u.png?v=2',alt='')
           br
           span 繆斯
         .catabtn#aqours
-          img.g1(src='img/cata_0a.png',alt='')
+          img.g1(src='img/cata_0a.png?v=2',alt='')
           br
           span 水團
         .catabtn#niji
-          img.g1(src='img/cata_0n.png',alt='')
+          img.g1(src='img/cata_0n.png?v=2',alt='')
           br
           span 虹咲
         .catabtn#b1
-          img.g1(src='img/cata_01.png',alt='')
+          img.g1(src='img/cata_01.png?v=2',alt='')
           br
           span 活動
         .catabtn#b2
-          img(src='img/cata_02.png',alt='')
+          img(src='img/cata_02.png?v=2',alt='')
           br
           span 商品
         .catabtn#b3
-          img(src='img/cata_03.png',alt='')
+          img(src='img/cata_03.png?v=2',alt='')
           br
           span 生日
         .catabtn#b4
-          img(src='img/cata_04.png',alt='')
+          img(src='img/cata_04.png?v=2',alt='')
           br
           span 書籍
         .catabtn#b5
-          img(src='img/cata_05.png',alt='')
+          img(src='img/cata_05.png?v=2',alt='')
           br
           span 廣播
         .catabtn#b6
-          img(src='img/cata_06.png',alt='')
+          img(src='img/cata_06.png?v=2',alt='')
           br
           span 遊戲
         .catabtn#b8
-          img(src='img/cata_08.png',alt='')
+          img(src='img/cata_08.png?v=2',alt='')
           br
           span 期限
         .catabtn#b9
-          img(src='img/cata_09.png',alt='')
+          img(src='img/cata_09.png?v=2',alt='')
           br
           span 其他
         .catabtn#b7
-          img(src='img/cata_07.png',alt='')
+          img(src='img/cata_07.png?v=2',alt='')
           br
           span 聲優
       .openbtn#tk
-        img(src='img/arrow.png',alt='')
+        img(src='img/arrow.png?v=2',alt='')
 
     //main
     main.text-center
@@ -106,7 +106,7 @@ html(lang='zh-Hant-TW')
     //footer
     footer.text-center
       .copyright
-        span LoveLive! Calendar!! ver1.2.0
+        span LoveLive! Calendar!! ver1.2.1
         a#kanri 管理人
         a#statement 聲明
         br
@@ -120,7 +120,7 @@ html(lang='zh-Hant-TW')
         p sunmonth
         p LODAM
         p miyakouji
-        img#close(src='img/cata_close.png',alt='')
+        img#close(src='img/cata_close.png?v=2',alt='')
       .statement
         span 本站為粉絲自製非營利網站，
         br
@@ -136,20 +136,22 @@ html(lang='zh-Hant-TW')
         span 、
         br
         a(href='http://realdgame.jp/',target='_blank') SCRAP
+        span 、
+        a(href='https://sega.jp/',target='_blank') SEGA
         br
         span 所有
         br
         a(rel='license', href='http://creativecommons.org/licenses/by-nc-nd/3.0/tw/' target='_black')
           img#cc(alt='創用 CC 授權條款', src='https://i.creativecommons.org/l/by-nc-nd/3.0/tw/88x31.png')
-        img#close(src='img/cata_close.png',alt='')
+        img#close(src='img/cata_close.png?v=2',alt='')
 
     //script
     script(src='js/jquery-2.1.4.min.js')
     script(src='plugins/bootstrap-3.3.1-24/js/bootstrap.min.js')
-    script(src='plugins/fullcalendar/moment.min.js')
-    script(src='plugins/fullcalendar/fullcalendar.min.js')
-    script(src='plugins/fullcalendar/gcal.min.js')
+    script(src='plugins/fullcalendar/moment.min.js?v=2')
+    script(src='plugins/fullcalendar/fullcalendar.min.js?v=2')
+    script(src='plugins/fullcalendar/gcal.min.js?v=2')
     script(src='plugins/preload/jquery.preload.min.js')
     script(src='plugins/fastclick/fastclick.js')
     script(type='text/javascript', src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a9fd5757618e3c7')
-    script(src='js/index.js?v=20180320')
+    script(src='js/index.js?v=2')
