@@ -1,5 +1,135 @@
 //日曆本體
 $(function() {
+  //手機版本體
+  if($(window).width()<768){
+    $('#calendar').fullCalendar({
+      googleCalendarApiKey: 'AIzaSyBA8owMc6-Ozf9T9BTAEWufMSdVbOwb3hs',
+      events: {
+          googleCalendarId: 'pnk42e02rmm3rtgd5f0aves4ac@group.calendar.google.com',
+          className: 'gcal-event'
+      },
+      header: {
+        left: '',
+        center: '',
+        right: 'title today basic,month prev,next'
+      },
+      footer:{
+        right: 'title today basic,month prev,next'
+      },
+      views: {
+        month: {
+        titleFormat: 'YYYY.MM'
+        },
+        basic: {
+        titleFormat: 'YY.MM.DD'
+        }
+      },
+      defaultView: 'basic',
+      height: 'auto',
+      navLinks: 'true',
+      eventAfterAllRender: function () {
+
+        //分類開關
+        function cataf(a,b){
+          a = localStorage.getItem(b);
+          if(a==0){
+            $('.fc-content span').each(function(){
+              if($(this).text()[1]==b){
+                $(this).parent().parent().addClass('hidden');
+              }
+              if($(this).text()[0]==b){
+                $(this).parent().parent().addClass('grouphidden');
+              }
+            });
+          }
+        }
+        cataf('cata1','1');
+        cataf('cata2','2');
+        cataf('cata3','3');
+        cataf('cata4','4');
+        cataf('cata5','5');
+        cataf('cata6','6');
+        cataf('cata7','7');
+        cataf('cata8','8');
+        cataf('cata9','9');
+        cataf('muse','u');
+        cataf('aqours','a');
+        cataf('niji','n');
+
+        //多團分類開關
+        u = localStorage.getItem('u');
+        a = localStorage.getItem('a');
+        n = localStorage.getItem('n');
+        if(u==0&&a==0&&n==0){
+          $('.fc-content span').each(function(){
+            if($(this).text()[0]=='c'){
+              $(this).parent().parent().addClass('grouphidden');
+            }
+          });
+        }
+        if(u==0&&a==0){
+          $('.fc-content span').each(function(){
+            if($(this).text()[0]=='x'){
+              $(this).parent().parent().addClass('grouphidden');
+            }
+          });
+        }
+        if(u==0&&n==0){
+          $('.fc-content span').each(function(){
+            if($(this).text()[0]=='y'){
+              $(this).parent().parent().addClass('grouphidden');
+            }
+          });
+        }
+        if(a==0&&n==0){
+          $('.fc-content span').each(function(){
+            if($(this).text()[0]=='z'){
+              $(this).parent().parent().addClass('grouphidden');
+            }
+          });
+        }
+
+        //今天背景色,羽毛切換
+        var tmn = localStorage.getItem("tm");
+        $('td.fc-today').prepend('<img id="today" src="img/hane_01.png?v=2">');
+        if(tmn==1){
+          $('img#today').attr('src','img/hane_02.png?v=2');
+          $('main .fc-today').addClass('tm2todaybc');
+        }
+
+        //移除活動連結
+        $('a.fc-event').removeAttr('href');
+
+        //事件點擊展開
+        $('.fc-event').click(function(){
+          $(this).children().children().toggleClass('wrapone');
+        });
+
+        //清除讀取動畫
+        $('#papa').remove();
+
+        //分類色圖
+        var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#8f17a7','#944433','#e17f74'];
+        $('span.fc-title').each(function(){
+          var i = $(this).text()[1];
+          if(i!=='7'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png?v=2">');}
+          var g = $(this).text()[0];
+          if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='y'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_07a.png?v=2">');}
+          if(g=='u'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_07u.png?v=2">');}
+          if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_07n.png?v=2">');}
+        });
+
+        //無事件花丸
+        $('#mu').remove();
+        if($('div.fc-content-skeleton td').text()==''){
+          $('.fc-bg').before('<img id="mu" src="img/mu.png">');
+        }
+
+      }
+    });
+  }
+
+  //PC版本體
   $('#calendar').fullCalendar({
     googleCalendarApiKey: 'AIzaSyBA8owMc6-Ozf9T9BTAEWufMSdVbOwb3hs',
     events: {
@@ -9,6 +139,9 @@ $(function() {
     header: {
       left: '',
       center: '',
+      right: 'title today basic,month prev,next'
+    },
+    footer:{
       right: 'title today basic,month prev,next'
     },
     views: {
@@ -102,8 +235,6 @@ $(function() {
       //清除讀取動畫
       $('#papa').remove();
 
-
-
       //分類色圖
       var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#8f17a7','#944433','#e17f74'];
       $('span.fc-title').each(function(){
@@ -126,6 +257,21 @@ $(function() {
 });
 
 $(function(){
+
+  //調整單日視圖高度
+  var wh = $(window).height()-238;
+  if($(window).width()>1200){
+    var wh = $(window).height()-130;
+  }
+  $('tbody.fc-body > tr > td > div').css('min-height',wh+'px');
+  $('#calendar > div.fc-view-container .fc-bg td').css('height',wh+'px');
+
+  //刪除footer多餘按鈕
+  setTimeout(function(){
+    $('header.text-right:eq(1)').remove();
+    $('.fc-right:eq(1) .fc-button-group:gt(1)').remove();
+    $('.fc-right:eq(0) .fc-button-group:gt(1)').remove();
+  },0);
 
   //讀取動畫
   var tmn = localStorage.getItem("tm");
@@ -268,9 +414,9 @@ $(function(){
       $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png?v=2">');
     }
     //調整單日視圖高度
-    var wh = $(window).height()-198;
+    var wh = $(window).height()-238;
     if($(window).width()>1200){
-      var wh = $(window).height()-130;
+      var wh = $(window).height()-142;
     }
     $('tbody.fc-body > tr > td > div').css('min-height',wh+'px');
     $('#calendar > div.fc-view-container .fc-bg td').css('height',wh+'px');

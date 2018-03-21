@@ -73,7 +73,7 @@ body
     left: 44%
   @media (max-width:767px)
     top: 47.5%
-    left: 39%
+    left: 38%
   width: 100px
   animation: papa 0.6s infinite linear
   @keyframes papa
@@ -223,7 +223,9 @@ header
 .fc-right
   margin-top: 15px !important
   @media (max-width:991px)
+    margin-top: 10px !important
     width: 100%
+    padding-right: 10px
     float: left !important
     .fc-button-group,.fc-today-button
       float: right !important
@@ -234,8 +236,15 @@ header
       margin-left: 10px !important
       @media (max-width:359px)
         font-size: 26px
+        margin: 0 !important
+  @media (max-width:359px)
+    padding-right: 0px
 .fc-next-button.fc-button > span,.fc-prev-button.fc-button > span
   margin: 0
+
+//footer時間
+.fc-footer-toolbar > div.fc-right > h2
+  color: #fff !important
 
 //main
 main
@@ -288,6 +297,8 @@ main
       text-decoration: line-through
     a
       text-decoration: line-through
+  .fc-toolbar
+    margin: 0 !important
   .fc-header-toolbar
     margin: 0 !important
   .fc-today

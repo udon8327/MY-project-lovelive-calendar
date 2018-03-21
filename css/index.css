@@ -68,7 +68,7 @@ body {
   @media (max-width: 767px) {
     #papa {
       top: 47.5%;
-      left: 39%; } }
+      left: 38%; } }
 
 @-webkit-keyframes papa {
   0% {
@@ -268,7 +268,9 @@ header #tk {
   margin-top: 15px !important; }
   @media (max-width: 991px) {
     .fc-right {
+      margin-top: 10px !important;
       width: 100%;
+      padding-right: 10px;
       float: left !important; }
       .fc-right .fc-button-group, .fc-right .fc-today-button {
         float: right !important;
@@ -279,10 +281,17 @@ header #tk {
         margin-left: 10px !important; } }
     @media (max-width: 991px) and (max-width: 359px) {
       .fc-right h2 {
-        font-size: 26px; } }
+        font-size: 26px;
+        margin: 0 !important; } }
+  @media (max-width: 359px) {
+    .fc-right {
+      padding-right: 0px; } }
 
 .fc-next-button.fc-button > span, .fc-prev-button.fc-button > span {
   margin: 0; }
+
+.fc-footer-toolbar > div.fc-right > h2 {
+  color: #fff !important; }
 
 main h2 {
   color: #00a1e9 !important;
@@ -347,6 +356,9 @@ main .fc-past span {
 
 main .fc-past a {
   text-decoration: line-through; }
+
+main .fc-toolbar {
+  margin: 0 !important; }
 
 main .fc-header-toolbar {
   margin: 0 !important; }
