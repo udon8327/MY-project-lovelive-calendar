@@ -1,7 +1,7 @@
 //日曆本體
 $(function() {
   //手機版本體
-  if($(window).width()<768){
+  if($(window).width()<769){
     $('#calendar').fullCalendar({
       googleCalendarApiKey: 'AIzaSyBA8owMc6-Ozf9T9BTAEWufMSdVbOwb3hs',
       events: {
@@ -168,6 +168,7 @@ $(function() {
         if(local==9){
           localjapan('span.fc-title');
         }
+
 
       }
     });
@@ -340,6 +341,9 @@ $(function() {
         localjapan('span.fc-title');
       }
 
+      $('.fc-right').prepend($('#search'));
+      $('#search').eq(0).remove();
+
     }
   });
 });
@@ -399,7 +403,7 @@ $(function(){
   });
 
   //fastclick
-  FastClick.attach(document.body);
+  // FastClick.attach(document.body);
 
   //preload
   $.preload( 'img/bg2.jpg?v=140',
@@ -438,7 +442,7 @@ $(function(){
   });
 
   //中文化
-  $('.fc-today-button').text('今天');
+  $('.fc-today-button').text('今日');
   $('.fc-basic-button').text('日');
   $('.fc-month-button').text('月');
 
@@ -747,7 +751,7 @@ $(function(){
   })
 
   //搜尋功能
-  $('#input').on('change paste keyup',function(){
+  $('#input,.search').on('change paste click keyup',function(){
     var value = $(this).val().toLowerCase();
     if(!value){
       $('.list-search-style').html('');
@@ -761,5 +765,14 @@ $(function(){
       );
     }
   });
+
+  $('.search').click(function(){
+    $('#input').toggleClass('hide').val('');
+  })
+
+  if($(window).width()<768){
+    $('.search').after($('#input'));
+    $('#input').addClass('hide');
+  }
 
 });

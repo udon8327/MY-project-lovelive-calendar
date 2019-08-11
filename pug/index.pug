@@ -40,9 +40,6 @@ html(lang='zh-Hant-TW')
       i.glyphicon.glyphicon-menu-up
 
     //header
-    form(name="form1" method="post" action="index.html")
-      span#search 搜尋：
-      input#input(type="text")
     header.text-right
       h1.logo
         a(href='http://www.udonsite.com/lovelivecalendar/') Lovelive! Calendar!!
@@ -78,7 +75,7 @@ html(lang='zh-Hant-TW')
         .catabtn#b4
           img(src='img/cata_04.png?v=140',alt='')
           br
-          span 書籍
+          span 期限
         .catabtn#b5
           img(src='img/cata_05.png?v=140',alt='')
           br
@@ -90,11 +87,11 @@ html(lang='zh-Hant-TW')
         .catabtn#b8
           img(src='img/cata_08.png?v=140',alt='')
           br
-          span 期限
+          span 商店
         .catabtn#b9
           img(src='img/cata_09.png?v=140',alt='')
           br
-          span 其他
+          span 投票
         .catabtn#b7
           img(src='img/cata_07.png?v=140',alt='')
           br
@@ -111,14 +108,21 @@ html(lang='zh-Hant-TW')
     footer.text-center
       #miss_m.visible-xs
         i.glyphicon.glyphicon-cog.setup
-        #missbtn 提供行程
+        i.glyphicon.glyphicon-plus-sign#missbtn
+        i.glyphicon.glyphicon-search.search
       #miss.missnone
         form(method='POST', action='https://formspree.io/kashiwa27cal@gmail.com')
           //input(type='email', name='email', placeholder='你的email')
+          p.big 回報行程
+          hr
           i.glyphicon.glyphicon-cog.setup.hidden-xs
-          textarea(name='message', placeholder='有錯誤或遺漏的行程可以直接在這裡回報給我們喔！感謝！')
-          button.btn(type='submit') 送出
+          textarea(name='message', placeholder='有錯誤或遺漏的行程可以直接在這裡回報喔！感謝！')
+          button.btn.btn-default(type='submit') 送出
           img#close.visible-xs(src='img/cata_close.png?v=140',alt='')
+      #search.hidden-xs
+        i.glyphicon.glyphicon-search
+        input#input(type="text" placeholder="輸入想搜尋的事件名")
+        img#close.visible-xs(src='img/cata_close.png?v=140',alt='')
       #setup
         p.big 設定
         hr
@@ -133,20 +137,20 @@ html(lang='zh-Hant-TW')
         img(src='img/full.png',alt='')
       .copyright
         span LoveLive! Calendar!! ver1.5.0
-        a#kanri 管理人
+        //- a#kanri 管理人
         a#statement 聲明
         br
         span 本站由 UDON (kashiwa27) 開發與維護
-         a#plurk(href='https://www.plurk.com/kashiwa27',target='_blank')
+        a#plurk(href='https://www.plurk.com/kashiwa27',target='_blank')
         a#mail(href='mailto: udon8327@gmail.com')
-      .kanri
-        p 行事曆事件管理人
-        p kashiwa27
-        p YuiiAnitima
-        p sunmonth
-        p LODAM
-        p miyakouji
-        img#close(src='img/cata_close.png?v=140',alt='')
+      //- .kanri
+      //-   p 行事曆事件管理人
+      //-   p kashiwa27
+      //-   p YuiiAnitima
+      //-   p sunmonth
+      //-   p LODAM
+      //-   p miyakouji
+      //-   img#close(src='img/cata_close.png?v=140',alt='')
       .statement
         span 本站為粉絲自製非營利網站，
         br
@@ -178,6 +182,6 @@ html(lang='zh-Hant-TW')
     script(src='plugins/fullcalendar/fullcalendar.min.js?v=140')
     script(src='plugins/fullcalendar/gcal.min.js?v=140')
     script(src='plugins/preload/jquery.preload.min.js')
-    script(src='plugins/fastclick/fastclick.js')
+    //- script(src='plugins/fastclick/fastclick.js')
     script(type='text/javascript', src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a9fd5757618e3c7')
     script(src='js/index.js?v=140')
