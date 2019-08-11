@@ -7,7 +7,7 @@
   bottom: 70px;
   padding: 10px 14px;
   font-size: 22px;
-  background: transparent;
+  background: rgba(0, 0, 0, 0);
   color: white;
   cursor: pointer;
   z-index: 500;
@@ -21,7 +21,7 @@
       right: 4px;
       bottom: 46px; } }
   #gotop:hover {
-    background: transparent; }
+    background: rgba(0, 0, 0, 0); }
     #gotop:hover i {
       -webkit-transform: translateY(-10px);
       -ms-transform: translateY(-10px);
@@ -291,7 +291,7 @@ header #tk {
   margin: 0; }
 
 .fc-footer-toolbar > div.fc-right > h2 {
-  color: #fff !important; }
+  display: none; }
 
 main h2 {
   color: #00a1e9 !important;
@@ -352,10 +352,14 @@ main .fc-bg td.fc-past {
   background-color: rgba(0, 0, 0, 0.06); }
 
 main .fc-past span {
-  text-decoration: line-through; }
+  color: #944433 !important;
+  opacity: 0.7 !important;
+  text-decoration: line-through !important; }
 
 main .fc-past a {
-  text-decoration: line-through; }
+  color: #944433 !important;
+  opacity: 0.7 !important;
+  text-decoration: line-through !important; }
 
 main .fc-toolbar {
   margin: 0 !important; }
@@ -368,6 +372,13 @@ main .fc-today a.fc-day-number {
 
 main a.fc-day-number {
   color: #333; }
+
+@media (max-width: 767px) {
+  main .fc-day-header span {
+    display: inline-block;
+    -webkit-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    transform: translateY(2px); } }
 
 main #mu {
   z-index: 100;
@@ -401,8 +412,7 @@ main .fc-content span {
 
 @media (min-width: 992px) {
   main .fc-content:hover span {
-    white-space: normal !important;
-    word-break: break-all !important; } }
+    cursor: pointer; } }
 
 main .fc-event-container span {
   padding-left: 2px; }
@@ -475,6 +485,9 @@ main td.fc-today {
       main td.fc-today #today {
         width: 40px; } }
 
+.full15 {
+  padding: 0 15px; }
+
 .wrap, .wrapone {
   white-space: normal;
   word-break: break-all; }
@@ -541,7 +554,8 @@ main td.fc-today {
 @media (max-width: 767px) {
   footer .copyright {
     text-align: left !important;
-    margin-left: 10px !important; } }
+    margin-left: 10px !important;
+    margin-top: 10px !important; } }
 
 footer .copyright {
   position: relative;
@@ -584,6 +598,8 @@ footer .copyright {
     transition: all 0.2s ease; }
 
 footer .kanri, footer .statement {
+  -webkit-box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.1);
   display: none;
   background-color: #fffdf8;
   width: 180px;
@@ -612,6 +628,176 @@ footer .statement {
   padding: 10px; }
   footer .statement #cc {
     padding: 6px 0 0px 0; }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .fc-footer-toolbar .fc-left {
+    width: 460px !important;
+    margin: -5px 0 0 0; } }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .fc-footer-toolbar .fc-right {
+    width: 260px; } }
+
+#miss form {
+  padding-top: 15px; }
+  @media (max-width: 767px) {
+    #miss form {
+      -webkit-box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.1); } }
+  #miss form img#close {
+    cursor: pointer;
+    border-radius: 50px;
+    width: 20px;
+    position: absolute;
+    right: 4px;
+    top: 4px; }
+  @media (max-width: 767px) {
+    #miss form {
+      padding-top: 28px; } }
+  @media (max-width: 767px) {
+    #miss form {
+      position: fixed;
+      z-index: 10;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 220px;
+      height: 200px;
+      border-radius: 5px;
+      background-color: #fff;
+      -webkit-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease; } }
+  #miss form textarea {
+    vertical-align: top;
+    width: 400px;
+    height: 30px;
+    line-height: 26px;
+    border-radius: 4px;
+    border: none;
+    resize: none; }
+    @media (max-width: 991px) {
+      #miss form textarea {
+        width: 370px; } }
+    @media (max-width: 767px) {
+      #miss form textarea {
+        width: 86%;
+        height: 70%;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 0px; } }
+  #miss form button {
+    height: 30px; }
+    @media (max-width: 767px) {
+      #miss form button {
+        margin: 0 10px; } }
+
+@media (min-width: 768px) {
+  #cancel {
+    display: none; } }
+
+#missbtn {
+  background-color: #fff;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 4px;
+  margin-left: 10px;
+  border: 1px solid #e6e6e6;
+  float: left; }
+  @media (max-width: 359px) {
+    #missbtn {
+      width: 64px;
+      margin-left: 6px; } }
+
+@media (max-width: 767px) {
+  .missnone {
+    display: none; } }
+
+.setup {
+  color: #fff;
+  font-size: 28px;
+  vertical-align: middle;
+  margin: 0 6px 0 0;
+  cursor: pointer; }
+  @media (max-width: 359px) {
+    .setup {
+      font-size: 24px; } }
+  @media (max-width: 767px) {
+    .setup {
+      float: left;
+      margin: 0 0 0 6px; } }
+
+#setup {
+  -webkit-box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.1);
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 200px;
+  border-radius: 5px;
+  background-color: #fff;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+  #setup img#close {
+    cursor: pointer;
+    border-radius: 50px;
+    width: 20px;
+    position: absolute;
+    right: 4px;
+    top: 4px; }
+  #setup p.big {
+    font-size: 18px;
+    margin: 10px 0 10px 0;
+    font-weight: 600; }
+  #setup p.small {
+    font-size: 14px;
+    color: #ff7e90; }
+  #setup p {
+    font-size: 16px; }
+  #setup hr {
+    margin: 0 0 24px 0; }
+  #setup .gmt8, #setup .gmt9 {
+    background-color: #fff;
+    border-radius: 50px;
+    border: 1px solid #666;
+    color: #666;
+    width: 60%;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    margin-bottom: 12px;
+    cursor: pointer; }
+  #setup .gmtactive {
+    background-color: #00a1e9;
+    color: #fff;
+    border: none; }
+
+.fc-toolbar {
+  position: relative; }
+
+#full {
+  width: 30px;
+  cursor: pointer;
+  padding-top: 8px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+  @media (max-width: 1025px) {
+    #full {
+      display: none; } }
 
 .aun {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5007f+33,00a1e9+33,00a1e9+33,00a1e9+66,f09700+66 */

@@ -91,9 +91,9 @@ $(function() {
 
         //今天背景色,羽毛切換
         var tmn = localStorage.getItem("tm");
-        $('td.fc-today').prepend('<img id="today" src="img/hane_01.png?v=2">');
+        $('td.fc-today').prepend('<img id="today" src="img/hane_01.png?v=140">');
         if(tmn==1){
-          $('img#today').attr('src','img/hane_02.png?v=2');
+          $('img#today').attr('src','img/hane_02.png?v=140');
           $('main .fc-today').addClass('tm2todaybc');
         }
 
@@ -112,17 +112,61 @@ $(function() {
         var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#8f17a7','#944433','#e17f74'];
         $('span.fc-title').each(function(){
           var i = $(this).text()[1];
-          if(i!=='7'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png?v=2">');}
+          if(i!=='7'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png?v=140">');}
           var g = $(this).text()[0];
-          if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='y'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_07a.png?v=2">');}
-          if(g=='u'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_07u.png?v=2">');}
-          if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_07n.png?v=2">');}
+          if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_07a.png?v=140">');}
+          if(g=='u'&&i=='7'||g=='y'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_07u.png?v=140">');}
+          if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_07n.png?v=140">');}
         });
 
         //無事件花丸
         $('#mu').remove();
         if($('div.fc-content-skeleton td').text()==''){
           $('.fc-bg').before('<img id="mu" src="img/mu.png">');
+        }
+
+        //搜尋功能
+        $('a.fc-event').each(function(){
+          var eventtext = $(this).find('.fc-title').text().toLowerCase();
+          $(this).attr('data-title',eventtext);
+        })
+
+        //時區切換
+        function localjapan(e){
+          $(e).each(function(){
+            var bt = $(this).text(),
+                cb = bt.lastIndexOf('\('),
+                ca = bt.lastIndexOf('\)'),
+                time = bt.substring(cb+1,ca),
+                check = bt.substring(cb+1,cb+2),
+                txt = bt.substring(0,cb+1),
+                times = time.split('、');
+            if(parseInt(check)||check=='0'){
+              var arr2 = times.map(function (i) {
+                var timessplit = i.split('');
+                var aa = timessplit[1];
+                if(timessplit[1]==9 && timessplit[0]==0){
+                  timessplit[0]='1';
+                  timessplit[1]='0';
+                }else if(timessplit[1]==9 && timessplit[0]==1){
+                  timessplit[0]='2';
+                  timessplit[1]='0';
+                }else{
+                  timessplit[1] = parseInt(aa) +1;
+                }
+                timessplitadd = timessplit.join('');
+                return timessplitadd;
+              });
+
+              arr3 = arr2.join('、');
+              $(this).text(txt + arr3 + '\)');
+
+            }
+          })
+        }
+        var local = localStorage.getItem("local");
+        if(local==9){
+          localjapan('span.fc-title');
         }
 
       }
@@ -218,9 +262,9 @@ $(function() {
 
       //今天背景色,羽毛切換
       var tmn = localStorage.getItem("tm");
-      $('td.fc-today').prepend('<img id="today" src="img/hane_01.png?v=2">');
+      $('td.fc-today').prepend('<img id="today" src="img/hane_01.png?v=140">');
       if(tmn==1){
-        $('img#today').attr('src','img/hane_02.png?v=2');
+        $('img#today').attr('src','img/hane_02.png?v=140');
         $('main .fc-today').addClass('tm2todaybc');
       }
 
@@ -239,11 +283,11 @@ $(function() {
       var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#8f17a7','#944433','#e17f74'];
       $('span.fc-title').each(function(){
         var i = $(this).text()[1];
-        if(i!=='7'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png?v=2">');}
+        if(i!=='7'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png?v=140">');}
         var g = $(this).text()[0];
-        if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='y'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_07a.png?v=2">');}
-        if(g=='u'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_07u.png?v=2">');}
-        if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_07n.png?v=2">');}
+        if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_07a.png?v=140">');}
+        if(g=='u'&&i=='7'||g=='y'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_07u.png?v=140">');}
+        if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_07n.png?v=140">');}
       });
 
       //無事件花丸
@@ -252,14 +296,72 @@ $(function() {
         $('.fc-bg').before('<img id="mu" src="img/mu.png">');
       }
 
+      //搜尋功能
+      $('a.fc-event').each(function(){
+        var eventtext = $(this).find('.fc-title').text().toLowerCase();
+        $(this).attr('data-title',eventtext);
+      })
+
+      //時區切換
+      function localjapan(e){
+        $(e).each(function(){
+          var bt = $(this).text(),
+              cb = bt.lastIndexOf('\('),
+              ca = bt.lastIndexOf('\)'),
+              time = bt.substring(cb+1,ca),
+              check = bt.substring(cb+1,cb+2),
+              txt = bt.substring(0,cb+1),
+              times = time.split('、');
+          if(parseInt(check)||check=='0'){
+            var arr2 = times.map(function (i) {
+              var timessplit = i.split('');
+              var aa = timessplit[1];
+              if(timessplit[1]==9 && timessplit[0]==0){
+                timessplit[0]='1';
+                timessplit[1]='0';
+              }else if(timessplit[1]==9 && timessplit[0]==1){
+                timessplit[0]='2';
+                timessplit[1]='0';
+              }else{
+                timessplit[1] = parseInt(aa) +1;
+              }
+              timessplitadd = timessplit.join('');
+              return timessplitadd;
+            });
+
+            arr3 = arr2.join('、');
+            $(this).text(txt + arr3 + '\)');
+
+          }
+        })
+      }
+      var local = localStorage.getItem("local");
+      if(local==9){
+        localjapan('span.fc-title');
+      }
+
     }
   });
 });
 
 $(function(){
 
+  //時區切換
+  function japanday(){
+    $('.fc-day-header:contains("一") span').text('月');
+    $('.fc-day-header:contains("二") span').text('火');
+    $('.fc-day-header:contains("三") span').text('水');
+    $('.fc-day-header:contains("四") span').text('木');
+    $('.fc-day-header:contains("五") span').text('金');
+    $('.fc-day-header:contains("六") span').text('土');
+  }
+  var local = localStorage.getItem("local");
+  if(local==9){
+    japanday();
+  }
+
   //調整單日視圖高度
-  var wh = $(window).height()-238;
+  var wh = $(window).height()-228;
   if($(window).width()>1200){
     var wh = $(window).height()-130;
   }
@@ -277,10 +379,10 @@ $(function(){
   var tmn = localStorage.getItem("tm");
   if(tmn==1){
     var papa = Math.floor(Math.random()*9+1);
-    $('body').prepend('<img id="papa" src="img/upapa_'+papa+'.png?v=2">');
+    $('body').prepend('<img id="papa" src="img/upapa_'+papa+'.png?v=140">');
   }else{
     var papa = Math.floor(Math.random()*9+1);
-    $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png?v=2">');
+    $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png?v=140">');
   }
 
   //gotop
@@ -300,28 +402,28 @@ $(function(){
   FastClick.attach(document.body);
 
   //preload
-  $.preload( 'img/bg2.jpg?v=2',
-    'img/bg2_m.jpg?v=2',
-    'img/bg1.jpg?v=2',
-    'img/bg1_m.jpg?v=2',
-    'img/apapa_1.png?v=2',
-    'img/apapa_2.png?v=2',
-    'img/apapa_3.png?v=2',
-    'img/apapa_4.png?v=2',
-    'img/apapa_5.png?v=2',
-    'img/apapa_6.png?v=2',
-    'img/apapa_7.png?v=2',
-    'img/apapa_8.png?v=2',
-    'img/apapa_9.png?v=2',
-    'img/upapa_1.png?v=2',
-    'img/upapa_2.png?v=2',
-    'img/upapa_3.png?v=2',
-    'img/upapa_4.png?v=2',
-    'img/upapa_5.png?v=2',
-    'img/upapa_6.png?v=2',
-    'img/upapa_7.png?v=2',
-    'img/upapa_8.png?v=2',
-    'img/upapa_9.png?v=2',
+  $.preload( 'img/bg2.jpg?v=140',
+    'img/bg2_m.jpg?v=140',
+    'img/bg1.jpg?v=140',
+    'img/bg1_m.jpg?v=140',
+    'img/apapa_1.png?v=140',
+    'img/apapa_2.png?v=140',
+    'img/apapa_3.png?v=140',
+    'img/apapa_4.png?v=140',
+    'img/apapa_5.png?v=140',
+    'img/apapa_6.png?v=140',
+    'img/apapa_7.png?v=140',
+    'img/apapa_8.png?v=140',
+    'img/apapa_9.png?v=140',
+    'img/upapa_1.png?v=140',
+    'img/upapa_2.png?v=140',
+    'img/upapa_3.png?v=140',
+    'img/upapa_4.png?v=140',
+    'img/upapa_5.png?v=140',
+    'img/upapa_6.png?v=140',
+    'img/upapa_7.png?v=140',
+    'img/upapa_8.png?v=140',
+    'img/upapa_9.png?v=140',
     'plugins/bootstrap-3.3.1-24/fonts/glyphicons-halflings-regular.woff2'
   );
 
@@ -360,7 +462,7 @@ $(function(){
   //主題切換
   var tmn = localStorage.getItem("tm");
   if(tmn==1){
-    $('#tm img').attr('src','img/theme2.png?v=2');
+    $('#tm img').attr('src','img/theme2.png?v=140');
     $('h2').addClass('tm2cl');
     $('body').addClass('tm2bg');
     $('.fc-unthemed td,.fc-unthemed th,#tm').addClass('tm2bd');
@@ -374,21 +476,21 @@ $(function(){
     },200);
     var tmn = localStorage.getItem("tm");
     if(tmn==0){
-      $('#tm img').attr('src','img/theme2.png?v=2');
+      $('#tm img').attr('src','img/theme2.png?v=140');
       $('h2').addClass('tm2cl');
       $('body').addClass('tm2bg');
       $('.fc-unthemed td,.fc-unthemed th,#tm,fc-right').addClass('tm2bd');
       $('#tk,#cm,main td.fc-today').addClass('tm2bc');
-      $('img#today').attr('src','img/hane_02.png?v=2');
+      $('img#today').attr('src','img/hane_02.png?v=140');
       $('main .fc-today').addClass('tm2todaybc');
       localStorage.setItem("tm", '1');
     }else{
-      $('#tm img').attr('src','img/theme1.png?v=2');
+      $('#tm img').attr('src','img/theme1.png?v=140');
       $('h2').removeClass('tm2cl');
       $('body').removeClass('tm2bg');
       $('.fc-unthemed td,.fc-unthemed th,#tm,fc-right').removeClass('tm2bd');
       $('#tk,#cm,main td.fc-today').removeClass('tm2bc');
-      $('img#today').attr('src','img/hane_01.png?v=2');
+      $('img#today').attr('src','img/hane_01.png?v=140');
       $('main .fc-today').removeClass('tm2todaybc');
       localStorage.setItem("tm", '0');
     }
@@ -396,6 +498,9 @@ $(function(){
 
   //切月份時更改表格邊框顏色
   $('.fc-right button').click(function(){
+    if(local==9){
+      japanday();
+    }
     $('#tk img').removeClass('tkon');
     var tmn = localStorage.getItem("tm");
     if(tmn==1){
@@ -408,13 +513,13 @@ $(function(){
     var tmn = localStorage.getItem("tm");
     if(tmn==1){
       var papa = Math.floor(Math.random()*9+1);
-      $('body').prepend('<img id="papa" src="img/upapa_'+papa+'.png?v=2">');
+      $('body').prepend('<img id="papa" src="img/upapa_'+papa+'.png?v=140">');
     }else{
       var papa = Math.floor(Math.random()*9+1);
-      $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png?v=2">');
+      $('body').prepend('<img id="papa" src="img/apapa_'+papa+'.png?v=140">');
     }
     //調整單日視圖高度
-    var wh = $(window).height()-238;
+    var wh = $(window).height()-228;
     if($(window).width()>1200){
       var wh = $(window).height()-142;
     }
@@ -428,7 +533,7 @@ $(function(){
   function cataf(a,b,c){
     a = localStorage.getItem(b);
     if(a==0){
-      $(c).addClass('grey').children().attr('src','img/cata_close.png?v=2');
+      $(c).addClass('grey').children().attr('src','img/cata_close.png?v=140');
     }
     $(c).click(function(){
       a = localStorage.getItem(b);
@@ -442,7 +547,7 @@ $(function(){
           }
         });
         localStorage.setItem(b, '1');
-        $(c).removeClass('grey').children().attr('src','img/cata_0'+b+'.png?v=2');
+        $(c).removeClass('grey').children().attr('src','img/cata_0'+b+'.png?v=140');
       }else{
         $('.fc-content span').each(function(){
           if($(this).text()[1]==b){
@@ -453,7 +558,7 @@ $(function(){
           }
         });
         localStorage.setItem(b, '0');
-        $(c).addClass('grey').children().attr('src','img/cata_close.png?v=2');
+        $(c).addClass('grey').children().attr('src','img/cata_close.png?v=140');
       }
     });
   }
@@ -474,9 +579,9 @@ $(function(){
   function aunf(a,b,c){
     a = localStorage.getItem(b);
     if(a==0){
-      $(c).removeClass('aun').children().attr('src','img/cata_close.png?v=2');
+      $(c).removeClass('aun').children().attr('src','img/cata_close.png?v=140');
     }else{
-      $(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png?v=2');
+      $(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png?v=140');
     }
     $(c).click(function(){
       a = localStorage.getItem(b);
@@ -490,7 +595,7 @@ $(function(){
           }
         });
         localStorage.setItem(b, '1');
-        $(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png?v=2');
+        $(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png?v=140');
       }else{
         $('.fc-content span').each(function(){
           if($(this).text()[1]==b){
@@ -501,7 +606,7 @@ $(function(){
           }
         });
         localStorage.setItem(b, '0');
-        $(c).removeClass('aun').children().attr('src','img/cata_close.png?v=2');
+        $(c).removeClass('aun').children().attr('src','img/cata_close.png?v=140');
       }
     });
   }
@@ -571,6 +676,37 @@ $(function(){
   xcataf('#aqours');
   xcataf('#niji');
 
+  //事件回報
+  $('.fc-left:eq(1)').prepend($('#miss'));
+  $('.fc-right:eq(1)').prepend($('#miss_m'));
+  $('#missbtn').click(function(){
+    $('#miss').toggleClass('missnone');
+    $('#setup').removeClass('visible');
+  });
+  $('#close').click(function(){
+    $('#miss').addClass('missnone');
+  })
+
+  //全螢幕
+  $('.fc-center:eq(1)').prepend($('#full'));
+  var fn = localStorage.getItem('full');
+  if(fn==1){
+    $('main').children().removeClass('container').addClass('container-fluid').addClass('full15');
+    $('#full img').attr('src','img/full_s.png');
+  }
+  $('#full').click(function(){
+    var fn = localStorage.getItem('full');
+    if(fn==1){
+      $('main').children().removeClass('container-fluid').removeClass('full15').addClass('container');
+      $('#full img').attr('src','img/full.png');
+      localStorage.setItem('full', 0);
+    }else{
+      $('main').children().removeClass('container').addClass('container-fluid').addClass('full15');
+      $('#full img').attr('src','img/full_s.png');
+      localStorage.setItem('full', 1);
+    }
+  });
+
   //管理人與聲明視窗
   $('#kanri').click(function(){
     $('.kanri').toggleClass('visible');
@@ -585,6 +721,45 @@ $(function(){
   });
   $('.statement img').click(function(){
     $('.statement').removeClass('visible');
+  });
+
+  //設定
+  $('i.setup').on('click',function(){
+    $('#setup').toggleClass('visible');
+    $('#miss').addClass('missnone');
+  });
+  $('#setup img').click(function(){
+    $('#setup').removeClass('visible');
+  });
+  var local = localStorage.getItem("local");
+  if(local==9){
+    $('.gmt9').addClass('gmtactive');
+  }else{
+    $('.gmt8').addClass('gmtactive');
+  }
+  $('.gmt9').on('click',function(){
+    localStorage.setItem('local', 9);
+    location.reload();
+  })
+  $('.gmt8').on('click',function(){
+    localStorage.setItem('local', 8);
+    location.reload();
+  })
+
+  //搜尋功能
+  $('#input').on('change paste keyup',function(){
+    var value = $(this).val().toLowerCase();
+    if(!value){
+      $('.list-search-style').html('');
+    }
+    else{
+      _searchStart(value);
+    }
+    function _searchStart(v){
+      $('.list-search-style').html(
+        'a.fc-event:not([data-title*="' + v + '"]) {display: none;}'
+      );
+    }
   });
 
 });

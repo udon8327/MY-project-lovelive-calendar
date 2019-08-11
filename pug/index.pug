@@ -4,9 +4,9 @@ html(lang='zh-Hant-TW')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no')
-    meta(name='description' content='LoveLive! Calendar!! 愛肝行事曆')
+    meta(name='description' content='LoveLive! Calendar!! 愛肝行事曆，在這裡確認μ\'s、Aqours與虹咲學園同好會的所有相關活動時程與聲優個人活動，讓LLer們不再錯過任何精彩的時刻!')
     meta(name='keywords' content='LoveLive! Calendar!!,LoveLive Calendar,LL Calendar,LoveLive行事曆,LL行事曆,LoveLive日曆,LL日曆,愛肝行事曆,カレンダー,ラブライブ！,ラブライブ！サンシャイン！！')
-    meta(name='author' content='Bohan Huang')
+    meta(name='author' content='UDON')
     //og
     meta(property='og:title', content='LoveLive! Calendar!!')
     meta(property='og:type', content='website')
@@ -19,11 +19,12 @@ html(lang='zh-Hant-TW')
     title LoveLive! Calendar!!
     link(rel='stylesheet' href='plugins/bootstrap-3.3.1-24/css/bootstrap.min.css')
     link(rel='stylesheet', href='plugins/fullcalendar/fullcalendar.min.css')
-    link(rel='stylesheet' href='css/index.css?v=2')
+    link(rel='stylesheet' href='css/index.css?v=140')
     | <!--[if lt IE 9]>
     |   <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     |   <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     | <![endif]-->
+    style.list-search-style.
     // Global site tag (gtag.js) - Google Analytics
     script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-114926771-1')
     script.
@@ -39,64 +40,67 @@ html(lang='zh-Hant-TW')
       i.glyphicon.glyphicon-menu-up
 
     //header
+    form(name="form1" method="post" action="index.html")
+      span#search 搜尋：
+      input#input(type="text")
     header.text-right
       h1.logo
         a(href='http://www.udonsite.com/lovelivecalendar/') Lovelive! Calendar!!
       .theme#tm
-        img(src='img/theme1.png?v=2',alt='')
+        img(src='img/theme1.png?v=140',alt='')
       .cata_m#cm
-        img(src='img/fliter.png?v=2',alt='')
+        img(src='img/fliter.png?v=140',alt='')
       .cata.text-center
         .catabtn#muse
-          img.g1(src='img/cata_0u.png?v=2',alt='')
+          img.g1(src='img/cata_0u.png?v=140',alt='')
           br
           span 繆斯
         .catabtn#aqours
-          img.g1(src='img/cata_0a.png?v=2',alt='')
+          img.g1(src='img/cata_0a.png?v=140',alt='')
           br
           span 水團
         .catabtn#niji
-          img.g1(src='img/cata_0n.png?v=2',alt='')
+          img.g1(src='img/cata_0n.png?v=140',alt='')
           br
           span 虹咲
         .catabtn#b1
-          img.g1(src='img/cata_01.png?v=2',alt='')
+          img.g1(src='img/cata_01.png?v=140',alt='')
           br
           span 活動
         .catabtn#b2
-          img(src='img/cata_02.png?v=2',alt='')
+          img(src='img/cata_02.png?v=140',alt='')
           br
           span 商品
         .catabtn#b3
-          img(src='img/cata_03.png?v=2',alt='')
+          img(src='img/cata_03.png?v=140',alt='')
           br
           span 生日
         .catabtn#b4
-          img(src='img/cata_04.png?v=2',alt='')
+          img(src='img/cata_04.png?v=140',alt='')
           br
           span 書籍
         .catabtn#b5
-          img(src='img/cata_05.png?v=2',alt='')
+          img(src='img/cata_05.png?v=140',alt='')
           br
           span 廣播
         .catabtn#b6
-          img(src='img/cata_06.png?v=2',alt='')
+          img(src='img/cata_06.png?v=140',alt='')
           br
           span 遊戲
         .catabtn#b8
-          img(src='img/cata_08.png?v=2',alt='')
+          img(src='img/cata_08.png?v=140',alt='')
           br
           span 期限
         .catabtn#b9
-          img(src='img/cata_09.png?v=2',alt='')
+          img(src='img/cata_09.png?v=140',alt='')
           br
           span 其他
         .catabtn#b7
-          img(src='img/cata_07.png?v=2',alt='')
+          img(src='img/cata_07.png?v=140',alt='')
           br
           span 聲優
       .openbtn#tk
-        img(src='img/arrow.png?v=2',alt='')
+        img(src='img/arrow.png?v=140',alt='')
 
     //main
     main.text-center
@@ -105,8 +109,30 @@ html(lang='zh-Hant-TW')
 
     //footer
     footer.text-center
+      #miss_m.visible-xs
+        i.glyphicon.glyphicon-cog.setup
+        #missbtn 提供行程
+      #miss.missnone
+        form(method='POST', action='https://formspree.io/kashiwa27cal@gmail.com')
+          //input(type='email', name='email', placeholder='你的email')
+          i.glyphicon.glyphicon-cog.setup.hidden-xs
+          textarea(name='message', placeholder='有錯誤或遺漏的行程可以直接在這裡回報給我們喔！感謝！')
+          button.btn(type='submit') 送出
+          img#close.visible-xs(src='img/cata_close.png?v=140',alt='')
+      #setup
+        p.big 設定
+        hr
+        p 切換所在時區
+        .col-xs-12
+          .gmt8 GMT+8
+        .col-xs-12
+          .gmt9 GMT+9
+        p.small ＊切換時區將自動重整網頁
+        img#close(src='img/cata_close.png?v=140',alt='')
+      #full
+        img(src='img/full.png',alt='')
       .copyright
-        span LoveLive! Calendar!! ver1.2.1
+        span LoveLive! Calendar!! ver1.5.0
         a#kanri 管理人
         a#statement 聲明
         br
@@ -120,7 +146,7 @@ html(lang='zh-Hant-TW')
         p sunmonth
         p LODAM
         p miyakouji
-        img#close(src='img/cata_close.png?v=2',alt='')
+        img#close(src='img/cata_close.png?v=140',alt='')
       .statement
         span 本站為粉絲自製非營利網站，
         br
@@ -143,15 +169,15 @@ html(lang='zh-Hant-TW')
         br
         a(rel='license', href='http://creativecommons.org/licenses/by-nc-nd/3.0/tw/' target='_black')
           img#cc(alt='創用 CC 授權條款', src='https://i.creativecommons.org/l/by-nc-nd/3.0/tw/88x31.png')
-        img#close(src='img/cata_close.png?v=2',alt='')
+        img#close(src='img/cata_close.png?v=140',alt='')
 
     //script
     script(src='js/jquery-2.1.4.min.js')
     script(src='plugins/bootstrap-3.3.1-24/js/bootstrap.min.js')
-    script(src='plugins/fullcalendar/moment.min.js?v=2')
-    script(src='plugins/fullcalendar/fullcalendar.min.js?v=2')
-    script(src='plugins/fullcalendar/gcal.min.js?v=2')
+    script(src='plugins/fullcalendar/moment.min.js?v=140')
+    script(src='plugins/fullcalendar/fullcalendar.min.js?v=140')
+    script(src='plugins/fullcalendar/gcal.min.js?v=140')
     script(src='plugins/preload/jquery.preload.min.js')
     script(src='plugins/fastclick/fastclick.js')
     script(type='text/javascript', src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a9fd5757618e3c7')
-    script(src='js/index.js?v=2')
+    script(src='js/index.js?v=140')
