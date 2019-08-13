@@ -773,6 +773,8 @@ $(function(){
   if($(window).width()<768){
     $('.search').after($('#input'));
     $('#input').addClass('hide');
-  }
+	}
 
 });
+
+

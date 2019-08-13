@@ -95,10 +95,10 @@ body {
     width: 100% !important; } }
 
 header .logo {
-  width: 140px;
-  height: 50px;
+  width: 120px;
+  height: 40px;
   background: url("../img/logo.png") no-repeat;
-  margin: 2px 0 0 0;
+  margin: 8px 0 0 0;
   background-size: contain;
   overflow: hidden;
   text-indent: 100%;
@@ -108,6 +108,11 @@ header .logo {
     display: block;
     width: 100%;
     height: 100%; }
+  @media (max-width: 900px) {
+    header .logo {
+      width: 140px;
+      height: 50px;
+      margin: 2px 0 0 0; } }
 
 header #tm {
   vertical-align: top;
@@ -116,7 +121,7 @@ header #tm {
   border: 3px solid #00a1e9;
   border-radius: 50px;
   cursor: pointer;
-  margin: 7px 10px 0px 10px;
+  margin: 7px 6px 0px 0px;
   display: inline-block;
   -webkit-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
@@ -286,6 +291,9 @@ header #tk {
   @media (max-width: 359px) {
     .fc-right {
       padding-right: 0px; } }
+  @media (max-width: 320px) {
+    .fc-right {
+      padding-right: 4px; } }
 
 .fc-next-button.fc-button > span, .fc-prev-button.fc-button > span {
   margin: 0; }
@@ -375,10 +383,7 @@ main a.fc-day-number {
 
 @media (max-width: 767px) {
   main .fc-day-header span {
-    display: inline-block;
-    -webkit-transform: translateY(2px);
-    -ms-transform: translateY(2px);
-    transform: translateY(2px); } }
+    display: inline-block; } }
 
 main #mu {
   z-index: 100;
@@ -550,6 +555,11 @@ main td.fc-today {
   -webkit-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease; }
+
+h2.tran {
+  -webkit-transform: translate(4px, 0px);
+  -ms-transform: translate(4px, 0px);
+  transform: translate(4px, 0px); }
 
 @media (max-width: 767px) {
   footer .copyright {
@@ -892,3 +902,9 @@ footer .statement {
   background: -o-linear-gradient(left, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
   background: linear-gradient(to right, #e5007f 33%, #00a1e9 33%, #00a1e9 33%, #00a1e9 66%, #f09700 66%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5007f', endColorstr='#f09700',GradientType=1 ); }
+
+@media (max-width: 320px) {
+  .at-expanding-share-button-toggle {
+    -webkit-transform: translate(10px, -15px) scale(0.7);
+    -ms-transform: translate(10px, -15px) scale(0.7);
+    transform: translate(10px, -15px) scale(0.7); } }
