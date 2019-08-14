@@ -235,41 +235,9 @@ $(function() {
         })
 
         //時區切換
-        function localjapan(e){
-          $(e).each(function(){
-            var bt = $(this).text(),
-                cb = bt.lastIndexOf('\('),
-                ca = bt.lastIndexOf('\)'),
-                time = bt.substring(cb+1,ca),
-                check = bt.substring(cb+1,cb+2),
-                txt = bt.substring(0,cb+1),
-                times = time.split('、');
-            if(parseInt(check)||check=='0'){
-              var arr2 = times.map(function (i) {
-                var timessplit = i.split('');
-                var aa = timessplit[1];
-                if(timessplit[1]==9 && timessplit[0]==0){
-                  timessplit[0]='1';
-                  timessplit[1]='0';
-                }else if(timessplit[1]==9 && timessplit[0]==1){
-                  timessplit[0]='2';
-                  timessplit[1]='0';
-                }else{
-                  timessplit[1] = parseInt(aa) +1;
-                }
-                timessplitadd = timessplit.join('');
-                return timessplitadd;
-              });
-
-              arr3 = arr2.join('、');
-              $(this).text(txt + arr3 + '\)');
-
-            }
-          })
-        }
         var local = localStorage.getItem("local");
         if(local==9){
-          localjapan('span.fc-title');
+          localjapan();
         }
 
         //自動翻譯
@@ -415,41 +383,9 @@ $(function() {
       })
 
       //時區切換
-      function localjapan(e){
-        $(e).each(function(){
-          var bt = $(this).text(),
-              cb = bt.lastIndexOf('\('),
-              ca = bt.lastIndexOf('\)'),
-              time = bt.substring(cb+1,ca),
-              check = bt.substring(cb+1,cb+2),
-              txt = bt.substring(0,cb+1),
-              times = time.split('、');
-          if(parseInt(check)||check=='0'){
-            var arr2 = times.map(function (i) {
-              var timessplit = i.split('');
-              var aa = timessplit[1];
-              if(timessplit[1]==9 && timessplit[0]==0){
-                timessplit[0]='1';
-                timessplit[1]='0';
-              }else if(timessplit[1]==9 && timessplit[0]==1){
-                timessplit[0]='2';
-                timessplit[1]='0';
-              }else{
-                timessplit[1] = parseInt(aa) +1;
-              }
-              timessplitadd = timessplit.join('');
-              return timessplitadd;
-            });
-
-            arr3 = arr2.join('、');
-            $(this).text(txt + arr3 + '\)');
-
-          }
-        })
-      }
       var local = localStorage.getItem("local");
       if(local==9){
-        localjapan('span.fc-title');
+        localjapan();
       }
 
       //自動翻譯
@@ -460,7 +396,6 @@ $(function() {
         };
         $(this).text(txt);
       })
-
 
       //搜尋排版
       $('.fc-right').prepend($('#search'));
@@ -897,6 +832,36 @@ $(function(){
     $('#input').addClass('hide');
 	}
 
+  
 });
 
+//時區切換
+function localjapan(){
+  $('span.fc-title').each(function(){
+    let txt = $(this).text();
+    let timeArr = txt.match(/\d{2}:\d{2}/g);
+    let timeArrAfter = [];
+    let timeIndex = [];
+    console.log(timeArr);
+    if(timeArr !== null){
+      timeArr.forEach(function(item,index){
+        let hourArr = item.split(':');
+        let hour = parseInt(hourArr[0]) + 1;
+        timeArrAfter.push( (hour>10?hour:"0"+hour) + ":" + hourArr[1] );
+        timeIndex.push(txt.indexOf(item));
+        txt = txt.replace(txt.substring(timeIndex[index],timeIndex[index]+5),timeArrAfter[index]);
+      });
+      $(this).text(txt);
+    }
+    // timeArr.forEach(function(item,index){
+    //   let hourArr = item.split(':');
+    //   let hour = parseInt(hourArr[0]) + 1;
+    //   timeArrAfter.push( (hour>10?hour:"0"+hour) + ":" + hourArr[1] );
+    //   timeIndex.push(txt.indexOf(item));
+    //   txt = txt.replace(txt.substring(timeIndex[index],timeIndex[index]+5),timeArrAfter[index]);
+    // });
 
+    // console.log(`txt = ${txt} , length=${txt.length}`);
+    // console.log(`timeArr = ${timeArr} , length=${timeArr.length}`);
+  })
+};
