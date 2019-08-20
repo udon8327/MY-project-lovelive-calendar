@@ -59,7 +59,9 @@ let words = {
 	浦の星: "浦之星",
 	女学院: "女學院",
 	アップ: "UP",
-	ニッポン: "Nippon",
+	オール: "All ",
+	ナイト: "Night ",
+	ニッポン: "Nippon ",
 	発: "發",
 	売: "售",
 	記念: "紀念",
@@ -98,7 +100,8 @@ let words = {
 	オフィシャル: "公式",
 	タイム: "Time",
 	グッズ: "Goods",
-	ぷちぐる: "趴趴手遊"
+	ぷちぐる: "趴趴手遊",
+	廣播動畫ージュ: "ラジオアニメージュ",
 };
 
 $(function() {
@@ -240,6 +243,7 @@ $(function() {
 		if(tmn==1){
 			$('.fc-unthemed td,.fc-unthemed th,#tm').addClass('tm2bd');
 		}
+
 		//讀取動畫
 		$('#papa').remove();
 		$('.fc-content-skeleton>table>tbody>tr>td').remove();
@@ -302,9 +306,10 @@ $(function() {
 	cataf('cata4','4','#b4');
 	cataf('cata5','5','#b5');
 	cataf('cata6','6','#b6');
-	//cataf('cata7','7','#b7');
+	cataf('cata7','7','#b7');
 	cataf('cata8','8','#b8');
 	cataf('cata9','9','#b9');
+	// cataf('catas','s','#bs');
 	cataf('muse','u','#muse');
 	cataf('aqours','a','#aqours');
 	cataf('niji','n','#niji');
@@ -313,7 +318,7 @@ $(function() {
 	function aunf(a,b,c){
 		a = localStorage.getItem(b);
 		if(a==0){
-			$(c).removeClass('aun').children().attr('src','img/cata_close.png?v=140');
+			$(c).addClass('grey').removeClass('aun').children().attr('src','img/cata_close.png?v=140');
 		}else{
 			$(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png?v=140');
 		}
@@ -329,7 +334,7 @@ $(function() {
 					}
 				});
 				localStorage.setItem(b, '1');
-				$(c).addClass('aun').children().attr('src','img/cata_0'+b+'.png?v=140');
+				$(c).removeClass('grey').addClass('aun').children().attr('src','img/cata_0'+b+'.png?v=140');
 			}else{
 				$('.fc-content span').each(function(){
 					if($(this).text()[1]==b){
@@ -340,11 +345,11 @@ $(function() {
 					}
 				});
 				localStorage.setItem(b, '0');
-				$(c).removeClass('aun').children().attr('src','img/cata_close.png?v=140');
+				$(c).addClass('grey').removeClass('aun').children().attr('src','img/cata_close.png?v=140');
 			}
 		});
 	}
-	aunf('cata7','7','#b7');
+	aunf('catas','s','#bs');
 
 	//多團分類開關
 	function xcataf(c){
@@ -481,7 +486,7 @@ $(function() {
 	})
 
 	//搜尋功能
-	$('#input,.search').on('change paste click keyup',function(){
+	$('#input,.search').on('change click keyup',function(){
 		var value = $(this).val().toLowerCase();
 		if(!value){
 			$('.list-search-style').html('');
@@ -560,6 +565,7 @@ function calendarInit(view){
 			cataf('cata7','7');
 			cataf('cata8','8');
 			cataf('cata9','9');
+			cataf('catas','s');
 			cataf('muse','u');
 			cataf('aqours','a');
 			cataf('niji','n');
@@ -617,14 +623,14 @@ function calendarInit(view){
 			$('#papa').remove();
 
 			//分類色圖
-			var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#8f17a7','#944433','#e17f74'];
+			var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#944433','#8081ca','#e17f74'];
 			$('span.fc-title').each(function(){
 				var i = $(this).text()[1];
-				if(i!=='7'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png?v=140">');}
+				if(i!=='s'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png?v=140">');}
 				var g = $(this).text()[0];
-				if(g=='a'&&i=='7'||g=='c'&&i=='7'||g=='x'&&i=='7'||g=='z'&&i=='7'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_07a.png?v=140">');}
-				if(g=='u'&&i=='7'||g=='y'&&i=='7'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_07u.png?v=140">');}
-				if(g=='n'&&i=='7'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_07n.png?v=140">');}
+				if(g=='a'&&i=='s'||g=='c'&&i=='s'||g=='x'&&i=='s'||g=='z'&&i=='s'){$(this).parent().parent().css('background-color','#00a1e9').prepend('<img src="img/cata_0sa.png?v=140">');}
+				if(g=='u'&&i=='s'||g=='y'&&i=='s'){$(this).parent().parent().css('background-color','#e5007f').prepend('<img src="img/cata_0su.png?v=140">');}
+				if(g=='n'&&i=='s'){$(this).parent().parent().css('background-color','#f09700').prepend('<img src="img/cata_0sn.png?v=140">');}
 			});
 
 			//無事件花丸
@@ -632,12 +638,6 @@ function calendarInit(view){
 			if($('div.fc-content-skeleton td').text()==''){
 				$('.fc-bg').before('<img id="mu" src="img/mu.png">');
 			}
-
-			//搜尋功能
-			$('a.fc-event').each(function(){
-				var eventtext = $(this).find('.fc-title').text().toLowerCase();
-				$(this).attr('data-title',eventtext);
-			})
 
 			//時區切換
 			if(localStorage.getItem("local")==9){
@@ -648,26 +648,32 @@ function calendarInit(view){
 					let timeIndex = [];
 					if(timeArr !== null){
 						timeArr.forEach(function(item,index){
-							let hourArr = item.split(':');
-							let hour = parseInt(hourArr[0]) + 1;
-							timeArrAfter.push( (hour>10?hour:"0"+hour) + ":" + hourArr[1] );
 							timeIndex.push(txt.indexOf(item));
+							let hour = parseInt(item.substr(0,2)) + 1;
+							timeArrAfter.push((hour<10?"0"+hour:hour));
 						});
-						timeArr.forEach(function(item,index){
-							txt = txt.replace(txt.substring(timeIndex[index],timeIndex[index]+5),timeArrAfter[index]);
+						timeArrAfter.forEach(function(item,index){
+							txtArr = txt.split('');
+							txtArr.splice(timeIndex[index],2,timeArrAfter[index].toString().substring(0,1),timeArrAfter[index].toString().substring(1,2));
+							txt = txtArr.join('');
 						});
 						$(this).text(txt);
 					}
 				})
 			}
 
+			//搜尋功能
+			// $('a.fc-event').each(function(){
+			// 	var eventtext = $(this).find('.fc-title').text().toLowerCase();
+			// 	$(this).attr('data-title',eventtext);
+			// })
 			//自動翻譯
 			$('span.fc-title').each(function(){
 				let txt = $(this).text();
 				for(word in words){
 					txt = txt.replace(new RegExp(word, "gi"), words[word]);
 				};
-				$(this).text(txt);
+				$(this).text(txt).closest('.fc-event').attr('data-title',txt.toLowerCase());
 			});
 
 			//PC版搜尋排版
