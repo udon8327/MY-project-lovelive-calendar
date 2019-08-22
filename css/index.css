@@ -908,3 +908,17 @@ footer .statement {
     -webkit-transform: translate(10px, -15px) scale(0.7);
     -ms-transform: translate(10px, -15px) scale(0.7);
     transform: translate(10px, -15px) scale(0.7); } }
+
+html, body {
+  overflow: hidden; }
+
+#maintenance {
+  z-index: 99999;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffee56; }
+  #maintenance img {
+    position: fixed;
+    bottom: 0;
+    right: 0; }
