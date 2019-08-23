@@ -623,7 +623,7 @@ function calendarInit(view){
 			$('#papa').remove();
 
 			//分類色圖
-			var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#944433','#8081ca','#e17f74'];
+			var colora = ['#cf2313','#ee5a2a','#efc337','#158046','#8f17a7','#4f49b2','#33b679','#7986cb','#e17f74'];
 			$('span.fc-title').each(function(){
 				var i = $(this).text()[1];
 				if(i!=='s'){$(this).parent().parent().css('background-color',colora[i-1]).prepend('<img src="img/cata_0'+i+'.png?v=140">');}
