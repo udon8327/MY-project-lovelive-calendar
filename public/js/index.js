@@ -2,6 +2,7 @@
 let words = {
   ラブライブ: "LoveLive",
   サンシャイン: "Sunshine",
+  スーパースター: "SuperStar",
   ライブ: "LIVE ",
   コラボ: "合作",
   シングル: "單曲",
